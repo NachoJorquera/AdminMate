@@ -1,0 +1,12 @@
+{
+    "english": "English",
+    "spanish": "Spanish",
+    "signin": "Sign-In",
+    "instruction": "Please enter your email and password",
+    "email": "Email",
+    "enterEmail": "Enter Email",
+    "password": "Password",
+    "enterPassword": "Enter Password",
+    "login": "Log In",
+    "createAccount": "Create Account"
+}
