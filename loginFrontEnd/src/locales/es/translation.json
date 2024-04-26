@@ -8,5 +8,9 @@
     "password": "Contraseña",
     "enterPassword": "Ingresa tu contraseña",
     "login": "Iniciar Sesión",
-    "createAccount": "Crear Cuenta"
+    "createAccount": "Crear Cuenta",
+    "signup": "Registrate",
+    "name": "Nombre",
+    "enterName": "Ingresa tu nombre",
+    "terms": "Estás de acuerdo con nuestras políticas y condiciones"
 }

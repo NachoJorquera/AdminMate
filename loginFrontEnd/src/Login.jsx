@@ -50,9 +50,9 @@ function Login() {
                     <Link to='/register' className='btn btn-outline-success border-2 w-100 rounded-5 text-decoration-none'>{t('createAccount')}</Link>
                 </div>
             </form>
-            <div className='mt-3'>
-                <button onClick={() => changeLanguage('en')} className='btn btn-outline-secondary btn-sm'>{t('english')}</button>
-                <button onClick={() => changeLanguage('es')} className='btn btn-outline-secondary btn-sm'>{t('spanish')}</button>
+            <div className='mt-3 btn-group'>
+                <button onClick={() => changeLanguage('en')} className='btn btn-outline-secondary btn-sm' style={{ '--bs-btn-padding-y': '.15rem', '--bs-btn-padding-x': '.25rem', '--bs-btn-font-size': '.75rem' }}>{t('english')}</button>
+                <button onClick={() => changeLanguage('es')} className='btn btn-outline-secondary btn-sm' style={{ '--bs-btn-padding-y': '.15rem', '--bs-btn-padding-x': '.25rem', '--bs-btn-font-size': '.75rem' }}>{t('spanish')}</button>
             </div>
         </div>
     </div>

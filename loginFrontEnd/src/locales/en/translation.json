@@ -8,5 +8,9 @@
     "password": "Password",
     "enterPassword": "Enter Password",
     "login": "Log In",
-    "createAccount": "Create Account"
+    "createAccount": "Create Account",
+    "signup": "Sign Up",
+    "name": "Name",
+    "enterName": "Enter Name",
+    "terms": "You are agree to our terms and policies"
 }
