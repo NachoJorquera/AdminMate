@@ -1,35 +1,46 @@
+// Importación de bibliotecas y módulos necesarios
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 
 function Register() {
+    // Definición de variables de estado local para almacenamiento de nombre, email y contraseña
     const [values, setValues] = useState({
         name: '',
         email: '',
         password: ''
     })
 
-    const navigate = useNavigate()
+    const navigate = useNavigate(); // Hook para navegar entre rutas
+
+    // Controlador de evento submit del formulario
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Previene que la página se refresque
+
+        // Envía los valores del formulario al endpoint del registro
         axios.post('http://localhost:8081/register', values)
         .then(res => {
+            // Procesamiento de la respuesta del servidor
             if(res.data.Status === "Success") {
-                navigate('/')
+                navigate('/'); // Navega a la página de inicio si el registro es exitoso
             } else {
-                alert("Error");
+                alert("Error"); // Muestra alerta de error si el registro falla
             }
         })
-        .then(err => console.log(err));
-    }
-
-    const { t, i18n } = useTranslation();
-    const changeLanguage = (language) => {
-        i18n.changeLanguage(language);
-        localStorage.setItem('i18nextLng', language);
+        .then(err => console.log(err)); // Registra el error en la consola
     };
 
+    // Uso del hook de traducción para soportar multi-lenguaje
+    const { t, i18n } = useTranslation();
+
+    // Función para cambiar idioma de la interfaz
+    const changeLanguage = (language) => {
+        i18n.changeLanguage(language);// Activa el cambio de idioma
+        localStorage.setItem('i18nextLng', language); // Almacena el lenguaje seleccionado en localStorage
+    };
+
+  // Estructura del componente Register  
   return (
     <div className='d-flex justify-content-center align-items-center bg-dark vh-100'>
         <div className='bg-white p-3 rounded w-25'>

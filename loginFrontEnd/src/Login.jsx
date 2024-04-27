@@ -40,7 +40,7 @@ function Login() {
         localStorage.setItem('i18nextLng', language); // Almacena el lenguaje seleccionado en localStorage
     };
 
-  // Estructura del componente del login
+  // Estructura del componente Login
   return (
     <div className='d-flex justify-content-center align-items-center bg-dark vh-100'>
         <div className='p-3 bg-white rounded w-25'>
