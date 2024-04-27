@@ -75,7 +75,7 @@ app.post('/login', (req, res) => {
                 }
             })
         } else {
-            return res.json({Error: "No email existed"});
+            return res.json({Error: "You don't have an account"});
         }
     })
 })

@@ -12,5 +12,10 @@
     "signup": "Sign Up",
     "name": "Name",
     "enterName": "Enter Name",
-    "terms": "You are agree to our terms and policies"
+    "terms": "You are agree to our terms and policies",
+    "loginNow": "Login Now",
+    "authMessage": "You are authenticated --- ",
+    "logout": "Logout",
+    "notAuthMessage": "You are not authenticated",
+    "emailError": "You don't have an account"
 }

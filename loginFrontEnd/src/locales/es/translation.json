@@ -12,5 +12,10 @@
     "signup": "Registrate",
     "name": "Nombre",
     "enterName": "Ingresa tu nombre",
-    "terms": "Estás de acuerdo con nuestras políticas y condiciones"
+    "terms": "Estás de acuerdo con nuestras políticas y condiciones",
+    "loginNow": "Iniciar Sesión Ahora",
+    "authMessage": "Estás autenticado --- ",
+    "logout": "Cerrar sesión",
+    "notAuthMessage": "No estás autenticado",
+    "emailError": "No estás registrado"
 }
