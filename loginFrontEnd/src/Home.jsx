@@ -1,8 +1,8 @@
 // Importación de bibliotecas y módulos necesarios
-import React, { useEffect, useState} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { useTranslation } from 'react-i18next'
+import React, { useEffect, useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
     // Estado para controlar si el usuario está autenticado y almacenar su nombre
@@ -32,7 +32,7 @@ function Home() {
       .then(res => {
         location.reload(true); // Recarga la página para reflejar el estado de no autenticado
       }).catch(err => console.log(err)); // Captura y registra errores en la consola
-    }
+    };
 
     // Uso del hook de traducción para soportar multi-lenguaje
     const { t, i18n } = useTranslation();
@@ -61,6 +61,6 @@ function Home() {
       }
     </div>
   )
-}
+};
 
 export default Home

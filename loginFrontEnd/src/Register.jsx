@@ -1,8 +1,8 @@
 // Importación de bibliotecas y módulos necesarios
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { useTranslation } from 'react-i18next'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function Register() {
     // Definición de variables de estado local para almacenamiento de nombre, email y contraseña
@@ -10,7 +10,7 @@ function Register() {
         name: '',
         email: '',
         password: ''
-    })
+    });
 
     const navigate = useNavigate(); // Hook para navegar entre rutas
 
@@ -74,6 +74,6 @@ function Register() {
         </div>
     </div>
   )
-}
+};
 
 export default Register

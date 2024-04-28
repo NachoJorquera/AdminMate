@@ -1,15 +1,15 @@
 // Importación de bibliotecas y módulos necesarios
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { useTranslation } from 'react-i18next'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function Login() {
     // Definición de variables de estado local para almacenamiento de email y contraseña
     const [values, setValues] = useState({
         email: '',
         password: ''
-    })
+    });
 
     const navigate = useNavigate(); // Hook para navegar entre rutas
     axios.defaults.withCredentials = true; // Config de axios para manejar cookies
@@ -69,6 +69,6 @@ function Login() {
         </div>
     </div>
   )
-}
+};
 
 export default Login
