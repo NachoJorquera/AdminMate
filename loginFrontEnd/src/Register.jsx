@@ -23,7 +23,7 @@ function Register() {
         .then(res => {
             // Procesamiento de la respuesta del servidor
             if(res.data.Status === "Success") {
-                navigate('/'); // Navega a la página de inicio si el registro es exitoso
+                navigate('/login'); // Navega a la página de inicio si el registro es exitoso
             } else {
                 alert("Error"); // Muestra alerta de error si el registro falla
             }
