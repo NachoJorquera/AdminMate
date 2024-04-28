@@ -45,20 +45,22 @@ function Home() {
 
   // Estructura del componente Home  
   return (
-    <div className='container mt-4'>
-      {
-        auth ?
-        <div>
-          <h3>{t('authMessage')} {name}</h3>
-          <button className='btn btn-danger' onClick={handleDelete}>{t('logout')}</button>
-        </div>
-        :
-        <div>
-          <h3>{t('notAuthMessage')}</h3>
-          <h3>{t('loginNow')}</h3>
-          <Link to="/login" className='btn btn-primary'>{t('login')}</Link>
-        </div>
-      }
+    <div className='d-flex justify-content-center align-items-center'style={{ height: '100vh' }}>
+      <div className='container mt-4 d-flex justify-content-center w-50 bg-dark text-light rounded-4 p-3'>
+        {
+          auth ?
+          <div>
+            <h3 className='text-center my-5'>{t('authMessage')} {name}</h3>
+            <button className='btn btn-danger w-100 rounded-5 my-3' onClick={handleDelete}>{t('logout')}</button>
+          </div>
+          :
+          <div>
+            <h3 className='text-center my-4'>{t('notAuthMessage')}</h3>
+            <h3 className='text-center'>{t('loginNow')}</h3>
+            <Link to="/login" className='btn btn-success w-100 rounded-5 my-3'>{t('login')}</Link>
+          </div>
+        }
+      </div>
     </div>
   )
 };
