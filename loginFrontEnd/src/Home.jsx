@@ -58,6 +58,7 @@ function Home() {
             <h3 className='text-center my-4'>{t('notAuthMessage')}</h3>
             <h3 className='text-center'>{t('loginNow')}</h3>
             <Link to="/login" className='btn btn-success w-100 rounded-5 my-3'>{t('login')}</Link>
+            <Link to="/register" className='btn btn-success w-100 rounded-5 my-3'>{t('signup')}</Link>
           </div>
         }
       </div>
