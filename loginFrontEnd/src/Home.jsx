@@ -45,7 +45,7 @@ function Home() {
 
   // Estructura del componente Home  
   return (
-    <div className='d-flex justify-content-center align-items-center'style={{ height: '100vh' }}>
+    <div className='d-flex justify-content-center align-items-center'style={{ height: '100vh'}}>
       <div className='container mt-4 d-flex justify-content-center w-50 bg-dark text-light rounded-4 p-3'>
         {
           auth ?
@@ -58,7 +58,12 @@ function Home() {
             <h3 className='text-center my-4'>{t('notAuthMessage')}</h3>
             <h3 className='text-center'>{t('loginNow')}</h3>
             <Link to="/login" className='btn btn-success w-100 rounded-5 my-3'>{t('login')}</Link>
+            <p className='text-center'>{t('registerMessage')}</p>
             <Link to="/register" className='btn btn-success w-100 rounded-5 my-3'>{t('signup')}</Link>
+            <div className='mt-3 btn-group'>
+                <button onClick={() => changeLanguage('en')} className='btn btn-secondary btn-sm' style={{ '--bs-btn-padding-y': '.15rem', '--bs-btn-padding-x': '.25rem', '--bs-btn-font-size': '.75rem' }}>{t('english')}</button>
+                <button onClick={() => changeLanguage('es')} className='btn btn-secondary btn-sm' style={{ '--bs-btn-padding-y': '.15rem', '--bs-btn-padding-x': '.25rem', '--bs-btn-font-size': '.75rem' }}>{t('spanish')}</button>
+            </div>
           </div>
         }
       </div>

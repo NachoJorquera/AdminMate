@@ -9,7 +9,7 @@
     "enterPassword": "Enter Password",
     "login": "Log In",
     "createAccount": "Create Account",
-    "signup": "Sign Up",
+    "signup": "Register",
     "name": "Name",
     "enterName": "Enter Name",
     "terms": "You are agree to our terms and policies",
@@ -17,5 +17,6 @@
     "authMessage": "You are authenticated --- ",
     "logout": "Logout",
     "notAuthMessage": "You are not authenticated",
-    "emailError": "You don't have an account"
+    "emailError": "You don't have an account",
+    "registerMessage": "Or create an account"
 }

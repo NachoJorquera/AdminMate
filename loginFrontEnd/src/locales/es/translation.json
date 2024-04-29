@@ -17,5 +17,6 @@
     "authMessage": "Estás autenticado --- ",
     "logout": "Cerrar sesión",
     "notAuthMessage": "No estás autenticado",
-    "emailError": "No estás registrado"
+    "emailError": "No estás registrado",
+    "registerMessage": "O crea una cuenta"
 }
