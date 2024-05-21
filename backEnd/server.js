@@ -16,12 +16,12 @@ app.use(cors({
 }));
 app.use(cookieParser()); // Activa el middleware para manejar cookies
 
-// Conexión a base de datos MySQL
+// Conexión a base de datos MySQL usando variables de entorno
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "11nacho04",
-    database: 'sign_up'
+    host: process.env.MYSQL_HOST || 'localhost',
+    user: process.env.MYSQL_USER || 'root',
+    password: process.env.MYSQL_PASSWORD || '11nacho04',
+    database: process.env.MYSQL_DATABASE || 'sign_up'
 });
 
 // Middleware para verificar la autenticidad del usuario a través de un token JWT
@@ -30,7 +30,7 @@ const verifyUser = (req, res, next) => {
     if(!token) {
         return res.json({Error: "You are not authenticated"}); // Entrega mensaje de error si no está autenticado
     } else {
-        jwt.verify(token, "jwt-secret-key", (err, decoded) => {
+        jwt.verify(token, process.env.JWT_SECRET || "jwt-secret-key", (err, decoded) => {
             if(err) {
                 return res.json({Error: "Token is not correct"}); // Entrega mensaje de error si el token no es válido
             } else {
@@ -73,7 +73,7 @@ app.post('/login', (req, res) => {
                 if(err) return res.json({Error: "Password compare error"}); // Error al comparar contraseñas
                 if(response) {
                     const name = data[0].name;
-                    const token = jwt.sign({name}, "jwt-secret-key", {expiresIn: '1d'}); // Genera un nuevo JWT
+                    const token = jwt.sign({name}, process.env.JWT_SECRET || "jwt-secret-key", {expiresIn: '1d'}); // Genera un nuevo JWT
                     res.cookie('token', token); // Envía el token como una cookie
                     return res.json({Status: "Success"}); // Inicio de sesión exitoso
                 } else {
