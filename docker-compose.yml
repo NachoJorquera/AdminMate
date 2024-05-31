@@ -25,8 +25,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 11nacho04
       MYSQL_DATABASE: sign_up
+      MYSQL_USER: root
     ports:
-      - "3307:3306"
+      - "3307:3307"
     volumes:
       - db_data:/var/lib/mysql
 
