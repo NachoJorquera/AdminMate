@@ -5,7 +5,19 @@ import cors from 'cors';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import cookieParser from 'cookie-parser';
+import winston from 'winston';
+
 const salt = 10; // Nivel de sal para el hash de bcrypt
+
+//Configuración de Winston
+const logger = winston.createLogger({
+    level: 'info', // Establecemos el nivel en el capturará los logs
+    format: winston.format.json(), // Establecemos el formato del log
+    transports: [
+        new winston.transports.Console(), // Log en la consola
+        new winston.transports.File({ filename: 'application.log'}) // Guarda los logs en el archivo
+    ]
+});
 
 const app = express(); // Creación de aplicación Express
 app.use(express.json()); // Middleware para parsear JSON
@@ -22,7 +34,6 @@ const db = mysql.createConnection({
     user: process.env.MYSQL_USER || 'root',
     password: process.env.MYSQL_PASSWORD || '11nacho04',
     database: process.env.MYSQL_DATABASE || 'sign_up',
-    port: 3307
 });
 
 // Middleware para verificar la autenticidad del usuario a través de un token JWT
@@ -49,16 +60,24 @@ app.get('/', verifyUser, (req, res) => {
 
 // Ruta POST para el registro de usuarios
 app.post('/register', (req, res) => {
+    logger.debug(`Registration data received: ${JSON.stringify(req.body)}`); // Log de nivel DEBUG
     const sql = "INSERT INTO login (`name`,`email`,`password`) VALUES (?)";
     bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
-        if(err) return res.json({Error: "Error for hashing password"}); // Error al hashear la contraseña
+        if(err) {
+            logger.error("Error hashing password", { error: err }); // Log de nivel ERROR
+            return res.json({Error: "Error for hashing password"}); // Error al hashear la contraseña
+        }
         const values = [
             req.body.name,
             req.body.email,
             hash // Constraseña hasheada
         ]
         db.query(sql, [values], (err, result) => {
-            if(err) return res.json({Error: "Inserting data Error in server"}); // Error al insertar los datos
+            if(err) {
+                logger.error("Inserting data error", { error: err }); // Log de nivel ERROR
+                return res.json({Error: "Inserting data Error in server"}); // Error al insertar los datos
+            }
+            logger.info("User registered successfully", { user: req.body.name }); // Log de nivel INFO
             return res.json({Status: "Success"}); // Exito en la inserción de datos
         });
     })
