@@ -18,5 +18,9 @@
     "logout": "Logout",
     "notAuthMessage": "You are not authenticated",
     "emailError": "You don't have an account",
-    "registerMessage": "Or create an account"
+    "registerMessage": "Or create an account",
+    "home": "Home",
+    "visits": "Visits",
+    "parking": "Parking",
+    "deliveries": "Deliveries"
 }

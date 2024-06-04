@@ -18,5 +18,9 @@
     "logout": "Cerrar sesión",
     "notAuthMessage": "No estás autenticado",
     "emailError": "No estás registrado",
-    "registerMessage": "O crea una cuenta"
+    "registerMessage": "O crea una cuenta",
+    "home": "Inicio",
+    "visits": "Visitas",
+    "parking": "Estacionamiento",
+    "deliveries": "Encomiendas"
 }
