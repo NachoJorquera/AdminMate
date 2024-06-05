@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import PageHeading from '../components/PageHeading';
-import { useTranslation } from 'react-i18next';
 import './Deliveries.css';
 
 function Deliveries() {
