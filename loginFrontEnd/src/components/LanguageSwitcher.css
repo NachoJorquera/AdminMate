@@ -1,0 +1,14 @@
+.leng-btn .btn {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.leng-btn .active {
+    background-color: #4ca5af;
+    color: white;
+}
+
+.leng-btn .btn:hover {
+    color: white;
+}

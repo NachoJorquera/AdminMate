@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #010101;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+a:hover {
+    color: #197575;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(29, 140, 1);
+}
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.navbar .logo i {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.navbar .toggle_btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    right: 2rem;
+    position: absolute;
+}
+
+.log-out {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: red;
+    background-color: transparent;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/* .log-out {
+    background-color: red;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+} */
+
+.log-out:hover {
+    background-color: red;
+    color: #010101;
+    scale: 1.03;
+}
+
+.log-out:active {
+    color: #010101;
+    background-color: #fff;
+    scale: 0.95;
+}
+
+/*Dropdown Menu*/
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dropdown.open {
+    height: 320px;
+}
+
+.dropdown li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown .log-out {
+    width: 100%;
+    color: #010101;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive Design*/
+@media (max-width: 992px) {
+    .navbar .links,
+    .navbar .switcher,
+    .navbar .log-out {
+        display: none;
+    }
+
+    .navbar .toggle_btn {
+        display: block;
+    }
+
+    .dropdown {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .dropdown {
+        left: 2rem;
+        width: unset;
+    }
+}
