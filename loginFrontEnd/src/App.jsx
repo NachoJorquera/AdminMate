@@ -4,6 +4,8 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
 import Deliveries from './pages/Deliveries'
+import Parking from './pages/Parking'
+import Visits from './pages/Visits'
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
-        <Route path='/deli' element={<Deliveries />}></Route>
+        <Route path='/visits' element={<Visits />}></Route>
+        <Route path='/deliveries' element={<Deliveries />}></Route>
+        <Route path='/parking' element={<Parking />}></Route>
       </Routes>
     </BrowserRouter>
   )

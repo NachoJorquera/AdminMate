@@ -65,9 +65,9 @@ function Navbar() {
             </div>
             <ul className='links'>
                 <li><a href='#'>{t('home')}</a></li>
-                <li><a href='#'>{t('visits')}</a></li>
-                <li><a href='#'>{t('deliveries')}</a></li>
-                <li><a href='#'>{t('parking')}</a></li>
+                <li><a href='/visits'>{t('visits')}</a></li>
+                <li><a href='/deliveries'>{t('deliveries')}</a></li>
+                <li><a href='/parking'>{t('parking')}</a></li>
             </ul>
             <div className='switcher'>
                 <LanguageSwitcher />
@@ -80,9 +80,9 @@ function Navbar() {
 
         <div className={`dropdown ${isDropdownOpen ? 'open' : ''}`}>
             <li><a href='#'>{t('home')}</a></li>
-            <li><a href='#'>{t('visits')}</a></li>
-            <li><a href='#'>{t('deliveries')}</a></li>
-            <li><a href='#'>{t('parking')}</a></li>
+            <li><a href='/visits'>{t('visits')}</a></li>
+            <li><a href='/deliveries'>{t('deliveries')}</a></li>
+            <li><a href='/parking'>{t('parking')}</a></li>
             <li className='switcher'><LanguageSwitcher /></li>
             <li><button className="log-out btn" onClick={handleDelete}>{t('logout')}</button></li>
         </div>

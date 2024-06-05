@@ -21,6 +21,9 @@
     "registerMessage": "Or create an account",
     "home": "Home",
     "visits": "Visits",
+    "visitsh1": "VISITS",
     "parking": "Parking",
-    "deliveries": "Deliveries"
+    "parkh1": "PARKING",
+    "deliveries": "Deliveries",
+    "delih1": "DELIVERIES"
 }

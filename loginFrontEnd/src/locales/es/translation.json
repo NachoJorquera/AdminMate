@@ -21,6 +21,9 @@
     "registerMessage": "O crea una cuenta",
     "home": "Inicio",
     "visits": "Visitas",
+    "visitsh1": "VISITAS",
     "parking": "Estacionamiento",
-    "deliveries": "Encomiendas"
+    "parkh1": "ESTACIONAMIENTO",
+    "deliveries": "Encomiendas",
+    "delih1": "ENCOMIENDAS"
 }
