@@ -1,0 +1,15 @@
+.title {
+    height: calc(100vh-60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.title h1 {
+    font-size: 7rem;
+    margin-top: 10rem;
+    font-weight: bold;
+}
