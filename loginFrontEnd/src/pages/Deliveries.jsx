@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import PageHeading from '../components/PageHeading';
 import { useTranslation } from 'react-i18next';
 import './Deliveries.css';
 
@@ -10,9 +11,7 @@ function Deliveries() {
   return (
     <>
         <Navbar />
-        <div className='title-page'>
-            <h1>{t('delih1')}</h1>
-        </div>
+        <PageHeading>{t('delih1')}</PageHeading>
     </>
   )
 }

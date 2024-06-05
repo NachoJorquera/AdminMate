@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import PageHeading from '../components/PageHeading';
 import './Visits.css'
 import { useTranslation } from 'react-i18next';
 
@@ -10,9 +11,7 @@ function Visits() {
   return (
     <>
         <Navbar />
-        <div className='title'>
-            <h1>{t('visitsh1')}</h1>
-        </div>
+        <PageHeading>{t('visitsh1')}</PageHeading>
     </>
   )
 }
