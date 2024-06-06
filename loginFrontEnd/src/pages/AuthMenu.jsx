@@ -3,6 +3,7 @@ import React, { useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import Home from './Home.jsx'
 
 function AuthMenu() {
     // Estado para controlar si el usuario está autenticado y almacenar su nombre
@@ -45,27 +46,14 @@ function AuthMenu() {
 
   // Estructura del componente Home  
   return (
+    auth ? <Home />
+    :
     <div className='d-flex justify-content-center align-items-center'style={{ height: '100vh'}}>
       <div className='container mt-4 d-flex justify-content-center w-50 bg-dark text-light rounded-4 p-3'>
-        {
-          auth ?
-          <div>
-            <h3 className='text-center my-5'>{t('authMessage')} {name}</h3>
-            <button className='btn btn-danger w-100 rounded-5 my-3' onClick={handleDelete}>{t('logout')}</button>
-          </div>
-          :
-          <div>
-            <h3 className='text-center my-4'>{t('notAuthMessage')}</h3>
-            <h3 className='text-center'>{t('loginNow')}</h3>
-            <Link to="/login" className='btn btn-success w-100 rounded-5 my-3'>{t('login')}</Link>
-            <p className='text-center'>{t('registerMessage')}</p>
-            <Link to="/register" className='btn btn-success w-100 rounded-5 my-3'>{t('signup')}</Link>
-            <div className='mt-3 btn-group'>
-                <button onClick={() => changeLanguage('en')} className='btn btn-secondary btn-sm' style={{ '--bs-btn-padding-y': '.15rem', '--bs-btn-padding-x': '.25rem', '--bs-btn-font-size': '.75rem' }}>{t('english')}</button>
-                <button onClick={() => changeLanguage('es')} className='btn btn-secondary btn-sm' style={{ '--bs-btn-padding-y': '.15rem', '--bs-btn-padding-x': '.25rem', '--bs-btn-font-size': '.75rem' }}>{t('spanish')}</button>
-            </div>
-          </div>
-        }
+        <div>
+          <h3 className='text-center my-5'>{t('authMessage')} {name}</h3>
+          <button className='btn btn-success w-100 rounded-5 my-3'><Link to={'/login'}>{t('login')}</Link></button>
+        </div>
       </div>
     </div>
   )
