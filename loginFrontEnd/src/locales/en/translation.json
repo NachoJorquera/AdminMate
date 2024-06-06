@@ -14,7 +14,7 @@
     "enterName": "Enter Name",
     "terms": "You are agree to our terms and policies",
     "loginNow": "Login Now",
-    "authMessage": "You are authenticated --- ",
+    "authMessage": "You are authenticated",
     "logout": "Logout",
     "notAuthMessage": "You are not authenticated",
     "emailError": "You don't have an account",
@@ -25,5 +25,8 @@
     "parking": "Parking",
     "parkh1": "PARKING",
     "deliveries": "Deliveries",
-    "delih1": "DELIVERIES"
+    "delih1": "DELIVERIES",
+    "homeh1": "HOME",  
+    "apartNum": "Apartment Number:",
+    "next": "Next"
 }

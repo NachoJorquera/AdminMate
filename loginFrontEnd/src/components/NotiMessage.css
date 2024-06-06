@@ -33,15 +33,17 @@
     gap: 3rem; 
 }
 
-
 .card-btn {
-    padding: 10px 100px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 19px;
     background-color: #1a1a1a;
     color: #fff;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    width: 300px;
+    margin: 10px;
+    text-align: center;
 }
 
 .card-btn:hover {

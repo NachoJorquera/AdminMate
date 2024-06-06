@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './NotiMessage.css'
 
-const NotiMessage = ({ onHome, onDeli }) => {
+const NotiMessage = ({ onDeli }) => {
   return (
     <>
     <div className='card'>

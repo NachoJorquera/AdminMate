@@ -14,7 +14,7 @@
     "enterName": "Ingresa tu nombre",
     "terms": "Estás de acuerdo con nuestras políticas y condiciones",
     "loginNow": "Iniciar Sesión Ahora",
-    "authMessage": "Estás autenticado --- ",
+    "authMessage": "Estás autenticado",
     "logout": "Cerrar sesión",
     "notAuthMessage": "No estás autenticado",
     "emailError": "No estás registrado",
@@ -25,5 +25,8 @@
     "parking": "Estacionamiento",
     "parkh1": "ESTACIONAMIENTO",
     "deliveries": "Encomiendas",
-    "delih1": "ENCOMIENDAS"
+    "delih1": "ENCOMIENDAS",
+    "homeh1": "INICIO",  
+    "apartNum": "Número de Departamento:",
+    "next": "Siguiente"
 }
