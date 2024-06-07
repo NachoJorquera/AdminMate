@@ -1,4 +1,5 @@
 import mysql from 'mysql2';
+import logger from '../utils/logger.js';
 
 // Conexión a base de datos MySQL usando variables de entorno
 const db = mysql.createConnection({
@@ -10,8 +11,10 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
     if (err) {
+        logger.error('Error connecting to the database:', err);
         console.error('Error connecting to the database:', err);
     } else {
+        logger.info('Connected to the database.');
         console.log('Connected to the database.');
     }
 });
