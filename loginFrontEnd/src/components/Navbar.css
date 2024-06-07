@@ -100,7 +100,7 @@ a:active {
 .log-out:active {
     color: #010101;
     background-color: #fff;
-    scale: 0.95;
+    transform: scale(0.95);
 }
 
 /*Dropdown Menu*/

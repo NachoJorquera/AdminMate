@@ -28,6 +28,11 @@
     margin-bottom: 3rem;
 }
 
+.headings h1 {
+    color: rgb(29, 140, 1);
+    font-size: 4rem;
+}
+
 .btns {
     display: flex;
     flex-direction: column;
@@ -49,8 +54,12 @@
 
 .card-btn:hover {
     color: #fff;
-    background-color: #0056b3;
+    background-color: rgb(29, 140, 1);
     transform: scale(1.03);
+}
+
+.card-btn:active {
+    transform: scale(0.99);
 }
 
 /* Media Queries for responsiveness */

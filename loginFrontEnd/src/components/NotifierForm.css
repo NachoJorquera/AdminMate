@@ -87,8 +87,13 @@
 
 .button-1:hover,
 .button-2:hover {
-    background-color: #0056b3;
+    background-color: rgb(29, 140, 1);
     transform: scale(1.03);
+}
+
+.button-1:active, 
+.button-2:active {
+    transform: scale(0.99);
 }
 
 /* Media Queries for responsiveness */
