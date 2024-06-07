@@ -44,10 +44,37 @@
     width: 300px;
     margin: 10px;
     text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .card-btn:hover {
     color: #fff;
     background-color: #0056b3;
-    scale: 1.03;
+    transform: scale(1.03);
+}
+
+/* Media Queries for responsiveness */
+@media (min-width: 600px) {
+    .card {
+        margin: 4rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        margin: 6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card {
+        margin: 10rem;
+    }
+
+    .btns {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
 }

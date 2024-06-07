@@ -2,13 +2,16 @@
     padding: 5px 10px;
     cursor: pointer;
     color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .leng-btn .active {
-    background-color: #4ca5af;
+    background-color: #0056b3;
     color: white;
+    border: none;
 }
 
 .leng-btn .btn:hover {
     color: white;
+    transform: scale(1.03);
 }

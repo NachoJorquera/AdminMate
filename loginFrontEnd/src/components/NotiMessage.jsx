@@ -5,10 +5,10 @@ import './NotiMessage.css';
 
 const NotiMessage = ({ onDeli }) => {
   const { t } = useTranslation();
-  
+
   return (
-    <>
-    <div className='card'>
+    <div className='container-fluid'>
+      <div className='card-body'>
         <div className='card-content'>
             <div className='headings'>
                 <h2 className='card-title'>{t('notiSent')}</h2>
@@ -19,8 +19,8 @@ const NotiMessage = ({ onDeli }) => {
                 <Link to='/home' className='card-btn'>{t('home')}</Link>
             </div>
         </div>
+      </div>
     </div>
-    </>
   )
 }
 

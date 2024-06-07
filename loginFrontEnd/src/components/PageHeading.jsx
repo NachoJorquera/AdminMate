@@ -4,7 +4,7 @@ import './PageHeading.css'
 function PageHeading({ children}) {
   return (
     <div className='title-page'>
-        <h1>{children}</h1>
+      <h1>{children}</h1>
     </div>
   )
 }

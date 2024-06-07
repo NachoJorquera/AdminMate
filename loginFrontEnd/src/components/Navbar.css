@@ -18,10 +18,15 @@ a {
     text-decoration: none;
     color: #fff;
     font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 a:hover {
-    color: #197575;
+    transform: scale(1.1);
+}
+
+a:active {
+    color: #0056b3;
 }
 
 .navbar {
@@ -71,7 +76,7 @@ a:hover {
     border: none;
     cursor: pointer;
     border-radius: 20px;
-    transition: scale 0.2 ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* .log-out {
@@ -89,7 +94,7 @@ a:hover {
 .log-out:hover {
     background-color: red;
     color: #010101;
-    scale: 1.03;
+    transform: scale(1.03);
 }
 
 .log-out:active {

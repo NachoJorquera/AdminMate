@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
         <Navbar />
-        <PageHeading>HOME</PageHeading>
+        <PageHeading>{t('homeh1')}</PageHeading>
     </>
   )
 }
