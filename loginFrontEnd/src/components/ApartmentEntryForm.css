@@ -1,0 +1,60 @@
+.container-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 6rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    margin: 40px;
+    font-size: 40px;
+    font-weight: bold;
+    transition: font-size 0.3s linear;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    border-color: #1a1a1a;
+    padding: 8px;
+    font-size: 18px;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+ .card-button {
+    padding: 10px 150px;
+    font-size: 18px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 3rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+ }
+
+ .card-button:hover {
+    background-color: rgba(30, 126, 94, 0.733);
+    transform: scale(1.03);
+  }
+
+  .card-button:active {
+    transform: scale(0.99);
+  }

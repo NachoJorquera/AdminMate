@@ -23,7 +23,7 @@ function Login() {
         .then(res => {
             // Procesamiento de la respuesta del servidor
             if(res.data.Status === "Success") {
-                navigate('/deliveries'); // Navega a la página de inicio si el login es exitoso
+                navigate('/home'); // Navega a la página de inicio si el login es exitoso
             } else {
                 alert(res.data.Error); // Muestra alerta de error si el login falla
             }

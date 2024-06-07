@@ -7,7 +7,7 @@
 
 body {
     height: 100vh;
-    background-color: #010101;
+    background-color: #484747;
 }
 
 li {
@@ -18,10 +18,15 @@ a {
     text-decoration: none;
     color: #fff;
     font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 a:hover {
-    color: #197575;
+    transform: scale(1.1);
+}
+
+a:active {
+    color: #0056b3;
 }
 
 .navbar {
@@ -31,7 +36,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(29, 140, 1);
+    background-color: rgba(30, 126, 94, 0.733);
 }
 
 .navbar .logo a {
@@ -65,13 +70,12 @@ a:hover {
     font-weight: bold;
     font-size: 1.1rem;
     color: red;
-    background-color: transparent;
+    background-color: #1a1a1a;
     margin-right: 10px;
     margin-left: 10px;
     border: none;
     cursor: pointer;
-    border-radius: 20px;
-    transition: scale 0.2 ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* .log-out {
@@ -89,13 +93,13 @@ a:hover {
 .log-out:hover {
     background-color: red;
     color: #010101;
-    scale: 1.03;
+    transform: scale(1.03);
 }
 
 .log-out:active {
     color: #010101;
     background-color: #fff;
-    scale: 0.95;
+    transform: scale(0.95);
 }
 
 /*Dropdown Menu*/
@@ -126,8 +130,6 @@ a:hover {
 
 .dropdown .log-out {
     width: 100%;
-    color: #010101;
-    background-color: red;
     display: flex;
     justify-content: center;
 }

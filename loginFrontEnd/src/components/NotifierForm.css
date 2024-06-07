@@ -1,0 +1,149 @@
+.container-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 10rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-subtitle {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    transition: font-size 0.3s linear;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.label {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 18px;
+}
+
+.select {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+}
+
+.select-box {
+    width: 300px;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 0.5rem;
+    scale: 1.15;
+}
+
+.card-footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    background-color: white;
+}
+
+.button-1 {
+    padding: 10px 150px;
+    font-size: 18px;
+    background-color: #535252;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 1.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button-2 {
+    padding: 10px 150px;
+    font-size: 18px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 1.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button-1:hover,
+.button-2:hover {
+    background-color: rgb(29, 140, 1);
+    transform: scale(1.03);
+}
+
+.button-1:active, 
+.button-2:active {
+    transform: scale(0.99);
+}
+
+/* Media Queries for responsiveness */
+@media (min-width: 600px) {
+
+
+    .card-body {
+        margin: 2rem;
+    }
+
+    .card-title {
+        font-size: 2rem;
+    }
+
+    .card-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 920px) {
+    .card-body {
+        margin: 6rem;
+    }
+
+    .card-title {
+        font-size: 3rem;
+    }
+
+    .card-subtitle {
+        font-size: 2.5rem;
+    }
+
+    .card-footer {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-body {
+        margin: 10rem;
+    }
+
+    .card-title {
+        font-size: 3.5rem;
+    }
+
+    .card-subtitle {
+        font-size: 3rem;
+    }
+}
