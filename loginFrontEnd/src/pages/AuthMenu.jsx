@@ -51,7 +51,7 @@ function AuthMenu() {
     <div className='d-flex justify-content-center align-items-center'style={{ height: '100vh'}}>
       <div className='container mt-4 d-flex justify-content-center w-50 bg-dark text-light rounded-4 p-3'>
         <div>
-          <h3 className='text-center my-5'>{t('authMessage')} {name}</h3>
+          <h3 className='text-center my-5'>{t('notAuthMessage')}</h3>
           <button className='btn btn-success w-100 rounded-5 my-3'><Link to={'/login'}>{t('login')}</Link></button>
         </div>
       </div>

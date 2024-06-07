@@ -70,12 +70,11 @@ a:active {
     font-weight: bold;
     font-size: 1.1rem;
     color: red;
-    background-color: transparent;
+    background-color: #1a1a1a;
     margin-right: 10px;
     margin-left: 10px;
     border: none;
     cursor: pointer;
-    border-radius: 20px;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -131,8 +130,6 @@ a:active {
 
 .dropdown .log-out {
     width: 100%;
-    color: #010101;
-    background-color: red;
     display: flex;
     justify-content: center;
 }
