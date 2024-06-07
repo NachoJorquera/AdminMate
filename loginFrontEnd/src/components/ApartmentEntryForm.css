@@ -1,17 +1,16 @@
-.containerr {
+.container-fluid {
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-.cardd {
+.card-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
     margin: 6rem;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -22,21 +21,23 @@
     font-weight: bold;
 }
 
-.container-form {
+.card-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
- .container-input {
-    padding: 10px 50px;
+.form-control {
+    border-color: #1a1a1a;
+    padding: 8px;
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
     border-radius: 10px;
     border: 1px solid;
- }
+}
 
- .container-button {
+ .card-button {
     padding: 10px 150px;
     font-size: 18px;
     background-color: #1a1a1a;
@@ -47,7 +48,7 @@
     margin-bottom: 3rem;
  }
 
- .container-button:hover {
+ .card-button:hover {
     background-color: #0056b3;
     scale: 1.03;
   }

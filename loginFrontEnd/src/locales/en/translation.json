@@ -28,5 +28,21 @@
     "delih1": "DELIVERIES",
     "homeh1": "HOME",  
     "apartNum": "Apartment Number:",
-    "next": "Next"
+    "apartInput": "Enter apartment number",
+    "next": "Next",
+    "notidetails": "Notification Details",
+    "notidetails2": "For Apartment N°",
+    "selectResi": "Select Resident(s):",
+    "chooseResi": "Choose residents",
+    "deliType": "Deliver Type:",
+    "selectType": "Select type",
+    "deli": "Delivery (food)", 
+    "package": "Package",
+    "mail": "Mail",
+    "notiType": "Notification Type:",
+    "back": "Back",
+    "notify": "Notify",
+    "notiSent": "Notification Sent",
+    "success": "Successfully",
+    "newDeli": "New Deliver"
 }

@@ -30,7 +30,7 @@
 
 .btns {
     display: flex;
-    gap: 3rem; 
+    flex-direction: column;
 }
 
 .card-btn {

@@ -28,5 +28,21 @@
     "delih1": "ENCOMIENDAS",
     "homeh1": "INICIO",  
     "apartNum": "Número de Departamento:",
-    "next": "Siguiente"
+    "apartInput": "Ingresa el número de departamento",
+    "next": "Siguiente",
+    "notidetails": "Detalles de Notificación",
+    "notidetails2": "Para Departamento N°",
+    "selectResi": "Seleccione Residente(s):",
+    "chooseResi": "Escoja residentes...",
+    "deliType": "Tipo de Encomienda:",
+    "selectType": "Seleccione tipo...",
+    "deli": "Comida", 
+    "package": "Paquete",
+    "mail": "Correspondencia",
+    "notiType": "Tipo de notificación:",
+    "back": "Atrás",
+    "notify": "Notificar",
+    "notiSent": "Notificación Enviada",
+    "success": "Exitosamente",
+    "newDeli": "Nueva Encomienda"
 }

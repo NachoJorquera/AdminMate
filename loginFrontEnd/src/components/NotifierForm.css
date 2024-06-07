@@ -1,4 +1,9 @@
-.card {
+.container-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,11 +13,6 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-    margin-bottom: 1rem;
-    background-color: rgb(124, 76, 76);
 }
 
 .card-title {
@@ -34,6 +34,8 @@
 
 .label {
     font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 18px;
 }
 
 .select {
@@ -47,14 +49,28 @@
     border: 1px solid;
     border-radius: 10px;
     padding: 0.5rem;
+    scale: 1.15;
 }
 
 .card-footer {
+    display: flex;
+    flex-direction: column;
     margin-top: 1.5rem;
     background-color: white;
 }
 
-.button {
+.button-1 {
+    padding: 10px 150px;
+    font-size: 18px;
+    background-color: #535252;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 1.5rem;
+}
+
+.button-2 {
     padding: 10px 150px;
     font-size: 18px;
     background-color: #1a1a1a;
@@ -65,21 +81,8 @@
     margin: 1.5rem;
 }
 
-.button:hover {
+.button-1:hover,
+.button-2:hover {
     background-color: #0056b3;
     scale: 1.03;
-}
-
-.arrow-btn {
-    border:none;
-    background-color: transparent;
-    font-size: 2rem;
-    display: flex;
-    position: relative;
-    right: 25rem;
-    margin-top: 1rem;
-}
-
-.arrow-btn:hover {
-    scale: 1.1;
 }
