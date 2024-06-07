@@ -24,6 +24,5 @@ app.use(authRoutes);
 
 // Configuración del servidor para escuchar en el puerto específico
 app.listen(8081, () => {
-    logger.info("Server running on port 8081")
-    console.log("Server running on port 8081"); // Mensaje de servidor en ejecución
+    logger.info("Server running on port 8081"); // Mensaje de servidor en ejecución
 });
