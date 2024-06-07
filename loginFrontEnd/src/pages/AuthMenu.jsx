@@ -15,7 +15,7 @@ function AuthMenu() {
 
     // Hook de efecto para realizar la solicitud GET al cargar el componente
     useEffect(() => {
-      axios.get('http://localhost:8081')
+      axios.get('http://localhost:8081/')
       .then(res => {
         if(res.data.Status === "Success") {
           setAuth(true); // Actualiza estado de autenticación a verdadero
@@ -26,14 +26,6 @@ function AuthMenu() {
       })
       .then(err => console.log(err)); // Registra el error en la consola
     }, []); // El array vacío asegura que el efecto se ejecute solo una vez al montar el componente
-
-    // Función para manejar el cierre de sesión
-    const handleDelete = () => {
-      axios.get('http://localhost:8081/logout')
-      .then(res => {
-        location.reload(true); // Recarga la página para reflejar el estado de no autenticado
-      }).catch(err => console.log(err)); // Captura y registra errores en la consola
-    };
 
     // Uso del hook de traducción para soportar multi-lenguaje
     const { t, i18n } = useTranslation();

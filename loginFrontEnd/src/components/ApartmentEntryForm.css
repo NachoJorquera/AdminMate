@@ -51,7 +51,7 @@
  }
 
  .card-button:hover {
-    background-color: rgb(29, 140, 1);
+    background-color: rgba(30, 126, 94, 0.733);
     transform: scale(1.03);
   }
 
