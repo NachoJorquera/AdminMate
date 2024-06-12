@@ -72,4 +72,46 @@ router.get('/logout', (req, res) => {
     return res.json({ Status: "Success" }); // Confirmación de la salida
 });
 
+// Ruta para verificar el número de departamento
+router.post('/check-apartment', (req, res) => {
+    const { apartmentNumber } = req.body;
+    const query = 'SELECT * FROM residents WHERE apartment_number = ? LIMIT 1';
+    db.query(query, [apartmentNumber], (err, results) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        if (results.length > 0) {
+            res.send({ exists: true });
+            console.log('Resident exists');
+        } else {
+            res.send({ exists: false });
+            console.log('Resident dont exists')
+        }
+    });
+});
+
+// Ruta para obtener información de los residentes por número de departamento
+// router.get('/api/get-residents', (req, res) => {
+//     const { apartmentNumber } = req.body;
+//     const query = 'SELECT name FROM residents WHERE apartment_number = ?';
+//     db.query(query, [apartmentNumber], (err, results) => {
+//         if (err) {
+//             return res.status(500).send(err);
+//         }
+//         res.send(results);
+//     });
+// });
+
+// Ruta para obtener información de los residentes por número de departamento v2.0
+router.get('/get-residents', (req, res) => {
+    const sql = "SELECT * FROM residents WHERE apartment_number = 2"
+    db.query(sql, (err, result) => {
+        if (err) {
+            return res.json({Message: "Error inside server"});
+        } else {
+            return res.json(result);
+        }
+    });
+});
+
 export default router;
