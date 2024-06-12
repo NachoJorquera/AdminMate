@@ -7,6 +7,7 @@ import Deliveries from './pages/Deliveries'
 import Parking from './pages/Parking'
 import Visits from './pages/Visits'
 import Home from './pages/Home'
+import DeliveriesForm from './pages/DeliveriesForm'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/register' element={<Register />}></Route>
         <Route path='/visits' element={<Visits />}></Route>
         <Route path='/deliveries' element={<Deliveries />}></Route>
+        <Route path='/deliveriesform' element={<DeliveriesForm />}></Route>
         <Route path='/parking' element={<Parking />}></Route>
       </Routes>
     </BrowserRouter>

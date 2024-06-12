@@ -11,17 +11,23 @@ function Deliveries() {
     // Uso del hook de traducción para soportar multi-lenguaje
     const { t } = useTranslation();
 
-    const [apartmentNumber, setApartmentNumber] = useState('');
     const [step, setStep] = useState(1);
+    const [apartmentNumber, setApartmentNumber] = useState('');
 
-    const handleApartmentSubmit = (number) => {
+    const handleNext = (number) => {
+        console.log('Npumero de departamento seleccionado:', number)
         setApartmentNumber(number);
-        setStep(2);
-    };
-
-    const handleNotify = () => {
-        setStep(3)
+        setStep(step + 1);
     }
+
+    // const handleApartmentSubmit = (number) => {
+    //     setApartmentNumber(number);
+    //     setStep(2);
+    // };
+
+    // const handleNotify = () => {
+    //     setStep(3)
+    // }
 
     const handleBack = () => {
         setStep(1);
@@ -35,9 +41,15 @@ function Deliveries() {
     <>
         <Navbar />
         <PageHeading>{t('delih1')}</PageHeading>
-        {step === 1 && <ApartmentEntryForm onSubmit={handleApartmentSubmit} />}
+        <ApartmentEntryForm />
+
+        {/* {step === 1 && <ApartmentEntryForm onNext={() => handleNext(apartmentNumber)} />}
+        {step === 2 && <NotifierForm onNext={handleNext} onBack={handleBack} apartmentNumber={apartmentNumber} />} 
+        {step === 3 && <NotiMessage onDeli={handleDeli} />} */}
+
+        {/* {step === 1 && <ApartmentEntryForm onSubmit={handleApartmentSubmit} />}
         {step === 2 && <NotifierForm apartmentNumber={apartmentNumber} onNotify={handleNotify} onBack={handleBack}/>}
-        {step === 3 && <NotiMessage onDeli={handleDeli} />}
+        {step === 3 && <NotiMessage onDeli={handleDeli} />} */}
     </>
   )
 }

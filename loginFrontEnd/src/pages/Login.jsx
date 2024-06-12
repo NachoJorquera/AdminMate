@@ -50,7 +50,7 @@ function Login() {
             </div>
             <form onSubmit={handleSubmit}>
                 <div className='mb-3'>
-                    <label htmlFor='password'><strong>{t('email')}</strong></label>
+                    <label htmlFor='email'><strong>{t('email')}</strong></label>
                     <input type='email'placeholder={t('enterEmail')} name='email' onChange={e => setValues({...values, email: e.target.value})} className='form-control rounded-5 border-2' />
                 </div>
                 <div className='mb-3'>
