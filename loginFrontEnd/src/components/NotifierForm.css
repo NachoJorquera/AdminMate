@@ -40,6 +40,43 @@
     font-size: 18px;
 }
 
+.resident-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.resident-button {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #717872;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.resident-button.selected {
+    background-color: rgb(44, 108, 87);
+    color: #fff;
+    border: none;
+}
+
+.resident-button:hover {
+    transform: scale(1.03);
+    background-color: rgb(44, 108, 87);
+}
+
+.resident-button:active {
+    transform: scale(0.99);
+}
+
 .select {
     display: flex;
     flex-direction: column;
@@ -47,10 +84,12 @@
 }
 
 .select-box {
-    width: 300px;
+    
     border: 1px solid;
     border-radius: 10px;
     padding: 0.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     scale: 1.15;
 }
 
@@ -87,7 +126,7 @@
 
 .button-1:hover,
 .button-2:hover {
-    background-color: rgb(29, 140, 1);
+    background-color: rgb(44, 108, 87);
     transform: scale(1.03);
 }
 
@@ -110,6 +149,11 @@
 
     .card-subtitle {
         font-size: 1.5rem;
+    }
+
+    .select-boxx {
+        margin-left: 3rem;
+        margin-right: 2rem;
     }
 }
 

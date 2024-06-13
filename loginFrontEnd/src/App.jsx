@@ -19,7 +19,7 @@ function App() {
         <Route path='/register' element={<Register />}></Route>
         <Route path='/visits' element={<Visits />}></Route>
         <Route path='/deliveries' element={<Deliveries />}></Route>
-        <Route path='/deliveriesform' element={<DeliveriesForm />}></Route>
+        <Route path='/deliveries/:apartment_number' element={<DeliveriesForm />}></Route>
         <Route path='/parking' element={<Parking />}></Route>
       </Routes>
     </BrowserRouter>

@@ -51,10 +51,16 @@
  }
 
  .card-button:hover {
-    background-color: rgba(30, 126, 94, 0.733);
+    background-color: rgb(44, 108, 87);
     transform: scale(1.03);
   }
 
   .card-button:active {
     transform: scale(0.99);
+  }
+
+  .card-footer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(196, 3, 3);
   }

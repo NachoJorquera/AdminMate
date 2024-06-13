@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './ApartmentEntryForm.css';
 
-const ApartmentEntryForm = ({ onNext }) => {
+const ApartmentEntryForm = () => {
     const [apartmentNumber, setApartmentNumber] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -18,14 +18,14 @@ const ApartmentEntryForm = ({ onNext }) => {
 
         try {
             const response = await axios.post('http://localhost:8081/check-apartment', {
-                apartmentNumber
+                apartment_number: apartmentNumber
             });
 
             if (response.data.exists) {
-                navigate('/deliveriesform');
+                navigate(`/deliveries/${apartmentNumber}`);
                 console.log('Departamento existente');
-                console.log('apartmentNumber:', apartmentNumber);
-                console.log('apartmentNumber type:', typeof apartmentNumber);
+                // console.log('apartmentNumber:', apartmentNumber);
+                // console.log('apartmentNumber type:', typeof apartmentNumber);
             } else {
                 setError('Apartment does not exists');
                 console.log('No existe un departamento registrado para ese número');
@@ -44,9 +44,11 @@ const ApartmentEntryForm = ({ onNext }) => {
             <label className='card-title' htmlFor='apartmentNumber'>{t('apartNum')}</label>
             <form className='card-form' onSubmit={handleSubmit}>
                 <input className='form-control' type='number' id='apartmentNumber' value={apartmentNumber} onChange={handleInputChange} required placeholder={t('apartInput')} />
-                <button className='card-button' type='submit'>{t('next')}</button>
+                <button className='card-button' onClick={handleSubmit}>{t('next')}</button>
             </form>
-            {error && <p>Error: {error}</p>}
+            <div className='card-footer'>
+                {error && <p>{error}</p>}
+            </div>
         </div>
     </div>
   )
