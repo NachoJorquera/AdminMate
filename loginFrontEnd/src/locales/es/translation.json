@@ -44,5 +44,6 @@
     "notify": "Notificar",
     "notiSent": "Notificación Enviada",
     "success": "Exitosamente",
-    "newDeli": "Nueva Encomienda"
+    "newDeli": "Nueva Encomienda",
+    "apartError": "No existe un departamento registrado para ese número"
 }

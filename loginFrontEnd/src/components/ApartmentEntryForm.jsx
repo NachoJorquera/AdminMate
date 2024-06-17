@@ -27,7 +27,7 @@ const ApartmentEntryForm = () => {
                 // console.log('apartmentNumber:', apartmentNumber);
                 // console.log('apartmentNumber type:', typeof apartmentNumber);
             } else {
-                setError('Apartment does not exists');
+                setError(true);
                 console.log('No existe un departamento registrado para ese número');
             }
         } catch (err) {
@@ -47,7 +47,7 @@ const ApartmentEntryForm = () => {
                 <button className='card-button' onClick={handleSubmit}>{t('next')}</button>
             </form>
             <div className='card-footer'>
-                {error && <p>{error}</p>}
+                {error && <p>{t('apartError')}</p>}
             </div>
         </div>
     </div>

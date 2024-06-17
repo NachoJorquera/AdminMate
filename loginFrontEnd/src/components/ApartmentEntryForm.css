@@ -59,8 +59,10 @@
     transform: scale(0.99);
   }
 
-  .card-footer {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: rgb(196, 3, 3);
+  .card-footer p {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: rgb(196, 3, 3);
+    border-radius: 10px;
   }

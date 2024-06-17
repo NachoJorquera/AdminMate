@@ -44,5 +44,6 @@
     "notify": "Notify",
     "notiSent": "Notification Sent",
     "success": "Successfully",
-    "newDeli": "New Deliver"
+    "newDeli": "New Deliver",
+    "apartError": "There is no registered apartment for that number"
 }

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import Navbar2 from '../components/Navbar2';
 import PageHeading from '../components/PageHeading';
 import './Register.css'
@@ -47,13 +49,13 @@ function Register() {
   return (
     <>
     <Navbar2 />
-    <PageHeading>{t('createAccount')}</PageHeading>
+    <PageHeading><FontAwesomeIcon icon={faBuilding} />AdminMate</PageHeading>
     <div className='d-flex justify-content-center align-items-center bg-dark'>
-        <div className='container-fluid bg-white p-3 rounded w-25'>
+        <div className='container-fluid p-3 bg-white rounded w-25'>
             <form onSubmit={handleSubmit}>
-                {/* <div className='text-center'>
-                    <h2>{t('signup')}</h2>
-                </div> */}
+                <div className='text-center'>
+                    <h1>{t('signup')}</h1>
+                </div>
                 <div className='mb-3'>
                     <label htmlFor="name"><strong>{t('name')}</strong></label>
                     <input type="text" placeholder={t('enterName')} name='name' onChange={e => setValues({...values, name: e.target.value})} className='form-control rounded-3' />
@@ -66,7 +68,7 @@ function Register() {
                     <label htmlFor="password"><strong>{t('password')}</strong></label>
                     <input type="password" placeholder={t('enterPassword')} name='password' onChange={e => setValues({...values, password: e.target.value})} className='form-control rounded-3' />
                 </div>
-                <div className='text-center d-grid gap-2 col-10 mx-auto'>
+                <div className='text d-grid gap-2 col-10 mx-auto'>
                     <button type='submit' className='btn btn-dark w-100 rounded-3'>{t('signup')}</button>
                     <p>{t('terms')}</p>
                     <Link to='/login' className='btn btn-outline-dark border-2 w-100 rounded-3 text-decoration-none'>{t('login')}</Link>

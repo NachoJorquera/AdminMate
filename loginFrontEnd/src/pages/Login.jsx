@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 import Navbar2 from '../components/Navbar2';
 import PageHeading from '../components/PageHeading';
 import './Login.css';
@@ -47,12 +49,12 @@ function Login() {
   return (
     <>
     <Navbar2 />
-    <PageHeading>{t('signin')}</PageHeading>
+    <PageHeading><FontAwesomeIcon icon={faBuilding} />AdminMate</PageHeading>
     <div className='d-flex justify-content-center align-items-center bg-dark'>
         <div className='container-fluid p-3 bg-white rounded w-25'>
             <form onSubmit={handleSubmit}>
                 <div className='text-center'>
-                    {/* <h1>{t('signin')}</h1> */}
+                    <h1>{t('signin')}</h1>
                     <p className='fs-4'>{t('instruction')}</p>
                 </div>
                 <div className='mb-3'>
