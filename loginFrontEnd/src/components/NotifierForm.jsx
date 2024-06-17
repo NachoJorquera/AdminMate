@@ -8,6 +8,8 @@ const NotifierForm = ( { onNext } ) => {
     const { apartment_number } = useParams();
     const [residents, setResidents] = useState([]);
     const [selectedResidents, setSelectedResidents] = useState([]);
+    const [deliveryType, setDeliveryType] = useState('');
+    const [notificationMethod, setNotificationMethod] = useState('');
     const { t } = useTranslation();
 
 
@@ -34,29 +36,51 @@ const NotifierForm = ( { onNext } ) => {
         });
     };
 
-    // const handleSelectionChange = (event) => {
-    //     const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
-    //     setSelectedResidents(selectedOptions)
-    // }
-
-    // const handleSelectionChange = (event) => {
-    //     const options = event.target.options;
-    //     const selected = [];
-    //     for (const option of options) {
-    //         if (option.selected) {
-    //             selected.push(option.value);
-    //         }
-    //     }
-    //     setSelectedResidents(selected);
-    // };
-
     useEffect(() => {
         logSelectedResidents();
     }, [selectedResidents]);
 
     const logSelectedResidents = () => {
         console.log("Selected residents:", selectedResidents);
-    }
+    };
+
+    const handleDeliveryType = (event) => {
+        setDeliveryType(event.target.value);
+    };
+
+    const handleNotificationMethod = (event) => {
+        setNotificationMethod(event.target.value);
+    };
+
+    const handleNotify = () => {
+        const notificationData = {
+            residents: selectedResidents,
+            deliveryType,
+            notificationMethod,
+        };
+
+        const messages = {
+            delivery: 'Su pedido delivery ha llegado y lo está esperando en recepción.',
+            package: 'Su paquete ha llegado y está listo para ser retirado en recepción.',
+            mail: 'Su correspondencia ha llegado y está lista para ser retirada en recepción.'
+        };
+
+        const message = messages[notificationData.deliveryType] || 'Error al seleccionar tipo de encomienda.';
+        console.log(message);
+        // console.log(notificationData.deliveryType);
+        // if (notificationData.deliveryType === 'delivey') {
+        //     console.log('Su pedido delivery ha llegado y lo está esperando en recepción.');
+        // } else if (notificationData.deliveryType === 'package') {
+        //     console.log('Su paquete ha llegado y está listo para ser retirado en recepción.');
+        // } else if (notificationData.deliveryType === 'mail') {
+        //     console.log('Su correspondencia ha llegado y está lista para ser retirada en recepción.');
+        // } else {
+        //     console.log('Error al seleccionar tipo de encomienda.')
+        // }
+        // return notificationData;
+        // console.log('Notification Data:', notificationData);
+        // console.log(typeof notificationData.deliveryType);
+    };
     
   return (
     <div className='container-fluid'>
@@ -76,17 +100,17 @@ const NotifierForm = ( { onNext } ) => {
                 </div>
                 <div className='select'>
                     <label htmlFor='deliveryType' className='label'>{t('deliType')}</label>
-                    <select id='deliveryType' className='select-box'>
-                        <option defaultValue='' disabled selected>{t('selectType')}</option>
-                        <option value='delivey'>{t('deli')}</option>
+                    <select id='deliveryType' className='select-box' value={deliveryType} onChange={handleDeliveryType}>
+                        <option value='' disabled selected>{t('selectType')}</option>
+                        <option value='delivery'>{t('deli')}</option>
                         <option value='package'>{t('package')}</option>
                         <option value='mail'>{t('mail')}</option>
                     </select>
                 </div>
                 <div className='select'>
                     <label htmlFor='notificationType' className='label'>{t('notiType')}</label>
-                    <select id='notificationType' className='select-box'>
-                        <option defaultValue='' disabled selected>{t('selectType')}</option>
+                    <select id='notificationType' className='select-box' value={notificationMethod} onChange={handleNotificationMethod}>
+                        <option value='' disabled selected>{t('selectType')}</option>
                         <option value='wsp'>WhatsApp</option>
                         <option value='email'>{t('email')}</option>
                         <option value='sms'>SMS</option>
@@ -95,7 +119,7 @@ const NotifierForm = ( { onNext } ) => {
             </div>
             <div className='card-footer'>
                 <Link to='/deliveries' className='button-1'>{t('back')}</Link>
-                <button className='button-2' onClick={onNext}>{t('notify')}</button>
+                <button className='button-2' onClick={handleNotify}>{t('notify')}</button>
             </div>
         </div>
     </div>

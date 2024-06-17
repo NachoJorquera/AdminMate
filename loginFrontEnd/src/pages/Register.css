@@ -1,0 +1,42 @@
+.d-flex .container-fluid {
+    margin-top: 10rem;
+}
+
+.text-center p {
+    margin: 1rem;
+    display: flex;
+}
+
+.btn-outline-dark {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #535252;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-dark {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-dark:hover,
+.btn-outline-dark:hover {
+    background-color: rgb(44, 108, 87);
+    transform: scale(1.03);
+}
+
+.btn-dark:active,
+.btn-outline-dark:active {
+    background-color: rgb(44, 108, 87);
+    transform: scale(0.99);
+}
