@@ -3,9 +3,11 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import db from '../config/db.js';
 import logger from '../utils/logger.js';
+import dotenv from 'dotenv';
 
 const router = express.Router();
 const salt = 10;
+dotenv.config();
 
 // Ruta POST para el registro de usuarios
 router.post('/register', (req, res) => {
@@ -49,7 +51,7 @@ router.post('/login', (req, res) => {
                 }
                 if(response) {
                     const name = data[0].name;
-                    const token = jwt.sign({name}, process.env.JWT_SECRET || "jwt-secret-key", {expiresIn: '1d'}); // Genera un nuevo JWT
+                    const token = jwt.sign({name}, process.env.JWT_SECRET, {expiresIn: '1d'}); // Genera un nuevo JWT
                     res.cookie('token', token); // Envía el token como una cookie
                     logger.info("User logged in successfully", { user: name });
                     return res.json({ Status: "Success" }); // Inicio de sesión exitoso
