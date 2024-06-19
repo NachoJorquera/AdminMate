@@ -18,7 +18,7 @@ const NotiMessage = ({ onDeli }) => {
                 <h1><FontAwesomeIcon icon={faEnvelopeCircleCheck} /></h1>
             </div>
             <div className='btns'>
-                <button className='card-btn' onClick={onDeli}>{t('newDeli')}</button>
+                <Link to='/deliveries' className='card-btn'>{t('newDeli')}</Link>
                 <Link to='/home' className='card-btn'>{t('home')}</Link>
             </div>
         </div>

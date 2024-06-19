@@ -95,7 +95,7 @@ router.post('/check-apartment', (req, res) => {
 // Ruta para obtener información de los residentes por número de departamento
 router.get('/deliveries/:apartment_number', (req, res) => {
     const { apartment_number } = req.params;
-    const query = "SELECT name FROM residents WHERE apartment_number = ?";
+    const query = "SELECT name, phone_number FROM residents WHERE apartment_number = ?";
     db.query(query, [apartment_number], (err, result) => {
         if (err) {
             return res.status(500).send(err);

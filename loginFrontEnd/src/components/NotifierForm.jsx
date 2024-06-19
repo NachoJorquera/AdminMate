@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import './NotifierForm.css';
 import { Link, useParams } from 'react-router-dom';
+import { sendNotification } from '../WSP-API';
+import i18next from 'i18next';
 
-const NotifierForm = ( { onNext } ) => {
+const NotifierForm = ( { onNotificationSent } ) => {
     const { apartment_number } = useParams();
     const [residents, setResidents] = useState([]);
     const [selectedResidents, setSelectedResidents] = useState([]);
@@ -26,12 +28,22 @@ const NotifierForm = ( { onNext } ) => {
         fetchResidents();
     }, [apartment_number]);
 
-    const handleButtonClick = (residentName) => {
+    // const handleButtonClick = (residentName) => {
+    //     setSelectedResidents(prevSelected => {
+    //         if (prevSelected.includes(residentName)) {
+    //             return prevSelected.filter(name => name !== residentName);
+    //         } else {
+    //             return [...prevSelected, residentName];
+    //         }
+    //     });
+    // };
+
+    const handleButtonClick = (resident) => {
         setSelectedResidents(prevSelected => {
-            if (prevSelected.includes(residentName)) {
-                return prevSelected.filter(name => name !== residentName);
+            if (prevSelected.some(selected => selected.name === resident.name)) {
+                return prevSelected.filter(selected => selected.name !== resident.name);
             } else {
-                return [...prevSelected, residentName];
+                return [...prevSelected, resident];
             }
         });
     };
@@ -41,7 +53,10 @@ const NotifierForm = ( { onNext } ) => {
     }, [selectedResidents]);
 
     const logSelectedResidents = () => {
-        console.log("Selected residents:", selectedResidents);
+        console.log("Selected residents with phone numbers:");
+        selectedResidents.forEach(resident => {
+            console.log(`Name: ${resident.name}, Phone: ${resident.phone_number}`);
+        });
     };
 
     const handleDeliveryType = (event) => {
@@ -53,33 +68,39 @@ const NotifierForm = ( { onNext } ) => {
     };
 
     const handleNotify = () => {
+        if (selectedResidents.length === 0) {
+            alert(t('errorNoResidentSelected'));
+            return;
+        }
+        if (!deliveryType) {
+            alert(t('errorNoDeliveryTypeSelected'));
+            return;
+        }
+        if (!notificationMethod) {
+            alert(t('errorNoNotificationMethodSelected'));
+            return;
+        }
+
         const notificationData = {
             residents: selectedResidents,
             deliveryType,
             notificationMethod,
         };
 
-        const messages = {
-            delivery: 'Su pedido delivery ha llegado y lo está esperando en recepción.',
-            package: 'Su paquete ha llegado y está listo para ser retirado en recepción.',
-            mail: 'Su correspondencia ha llegado y está lista para ser retirada en recepción.'
-        };
-
-        const message = messages[notificationData.deliveryType] || 'Error al seleccionar tipo de encomienda.';
-        console.log(message);
-        // console.log(notificationData.deliveryType);
-        // if (notificationData.deliveryType === 'delivey') {
-        //     console.log('Su pedido delivery ha llegado y lo está esperando en recepción.');
-        // } else if (notificationData.deliveryType === 'package') {
-        //     console.log('Su paquete ha llegado y está listo para ser retirado en recepción.');
-        // } else if (notificationData.deliveryType === 'mail') {
-        //     console.log('Su correspondencia ha llegado y está lista para ser retirada en recepción.');
-        // } else {
-        //     console.log('Error al seleccionar tipo de encomienda.')
-        // }
-        // return notificationData;
-        // console.log('Notification Data:', notificationData);
-        // console.log(typeof notificationData.deliveryType);
+        if (notificationData.notificationMethod === 'wsp') {
+            selectedResidents.forEach(resident => {
+                sendNotification(resident.phone_number, notificationData.deliveryType, i18next.language)
+                    .then(response => {
+                        onNotificationSent();
+                        console.log(`Notification sent successfully to: ${resident.name}`, response);
+                        // alert(`Notification sent successfully to: ${resident.name}`, response);
+                    })
+                    .catch(error => {
+                        console.error (`Error sending notification to: ${resident.name}`, error);
+                        alert(`Error sending notification to: ${resident.name}`, error);
+                    });
+            });
+        }
     };
     
   return (
@@ -92,7 +113,7 @@ const NotifierForm = ( { onNext } ) => {
                     <label className='label'>{t('selectResi')}</label>
                     <div className='container-fluid'>
                         {residents.map((resident, index) => (
-                            <button key={index} className={`resident-button ${selectedResidents.includes(resident.name) ? 'selected' : ''}`} onClick={() => handleButtonClick(resident.name)}>
+                            <button key={index} className={`resident-button ${selectedResidents.some(selected => selected.name === resident.name) ? 'selected' : ''}`} onClick={() => handleButtonClick(resident)}>
                                 {resident.name}
                             </button>
                         ))}

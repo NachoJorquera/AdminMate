@@ -29,7 +29,7 @@
 }
 
 .headings h1 {
-    color: rgb(29, 140, 1);
+    color: rgb(44, 108, 87);
     font-size: 4rem;
 }
 
@@ -54,7 +54,7 @@
 
 .card-btn:hover {
     color: #fff;
-    background-color: rgb(29, 140, 1);
+    background-color: rgb(44, 108, 87);
     transform: scale(1.03);
 }
 
@@ -86,4 +86,4 @@
         align-items: center;
         gap: 1rem;
     }
-}
+} 
