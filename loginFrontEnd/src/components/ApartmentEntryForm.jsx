@@ -3,10 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './ApartmentEntryForm.css';
+import Modal from './Modal';
 
 const ApartmentEntryForm = () => {
     const [apartmentNumber, setApartmentNumber] = useState('');
     const [error, setError] = useState(null);
+    const [modalChildren, setModalChildren] = useState('');
+    const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
@@ -27,11 +30,13 @@ const ApartmentEntryForm = () => {
                 // console.log('apartmentNumber:', apartmentNumber);
                 // console.log('apartmentNumber type:', typeof apartmentNumber);
             } else {
-                setError(true);
+                setModalChildren(t('apartError'));
+                setShowModal(true);
                 console.log('No existe un departamento registrado para ese número');
             }
         } catch (err) {
-            setError(err.response ? err.response.data : 'Error occurred');
+            setModalChildren('Error ocurred');
+            setShowModal(true);
         }
     };
 
@@ -39,16 +44,16 @@ const ApartmentEntryForm = () => {
     const { t } = useTranslation();
 
   return (
-    <div className='container-fluid'>
-        <div className='card-body'>
-            <label className='card-title' htmlFor='apartmentNumber'>{t('apartNum')}</label>
-            <form className='card-form' onSubmit={handleSubmit}>
-                <input className='form-control' type='number' id='apartmentNumber' value={apartmentNumber} onChange={handleInputChange} required placeholder={t('apartInput')} />
-                <button className='card-button' onClick={handleSubmit}>{t('next')}</button>
-            </form>
-            <div className='card-footer'>
-                {error && <p>{t('apartError')}</p>}
+    <div className='d-flex justify-content-center align-items-center'>
+        <div className='container-fluid'>
+            <div className='card-body'>
+                <label className='card-title' htmlFor='apartmentNumber'>{t('apartNum')}</label>
+                <form className='card-form' onSubmit={handleSubmit}>
+                    <input className='form-control' type='number' id='apartmentNumber' value={apartmentNumber} onChange={handleInputChange} required placeholder={t('apartInput')} />
+                    <button className='card-button' onClick={handleSubmit}>{t('next')}</button>
+                </form>
             </div>
+            <Modal show={showModal} onClose={() => setShowModal(false)} children={modalChildren} />
         </div>
     </div>
   )

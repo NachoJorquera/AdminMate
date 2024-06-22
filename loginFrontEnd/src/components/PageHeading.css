@@ -6,22 +6,21 @@
     justify-content: center;
     text-align: center;
     color: white;
-    margin-top: 6rem;
+    margin-top: 3rem;
     font-weight: bold;
-    font-size: 8rem;
     width: 100%;
     transition: font-size 0.3s linear;
 }
 
 @media (min-width: 1272px) {
     .title-page h1 {
-        font-size: 8rem;
+        font-size: 7rem;
     }
 }
 
 @media (min-width: 1101px) and (max-width: 1271px) {
     .title-page h1 {
-        font-size: 7rem;
+        font-size: 6.5rem;
     }
 }
 
@@ -31,13 +30,25 @@
     }
 }
 
-@media (min-width: 792px) and (max-width: 956px) {
+@media (min-width: 888px) and (max-width: 956px) {
+    .title-page h1 {
+        font-size: 5.5rem;
+    }
+}
+
+@media (min-width: 810px) and (max-width: 887px) {
     .title-page h1 {
         font-size: 5rem;
     }
 }
 
-@media (min-width: 656px) and (max-width: 791px) {
+@media (min-width: 730px) and (max-width: 809px) {
+    .title-page h1 {
+        font-size: 4.5rem;
+    }
+}
+
+@media (min-width: 656px) and (max-width: 729px) {
     .title-page h1 {
         font-size: 4rem;
     }
@@ -45,6 +56,6 @@
 
 @media (max-width: 655px) {
     .title-page h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
   }

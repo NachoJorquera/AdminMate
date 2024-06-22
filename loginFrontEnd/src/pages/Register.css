@@ -1,5 +1,9 @@
 .d-flex .container-fluid {
-    margin-top: 7rem;
+    margin-top: 3rem;
+}
+
+.container-fluid form {
+    width: 70%;
 }
 
 .text p {
@@ -10,7 +14,8 @@
 }
 
 .btn-outline-dark {
-    padding: 10px 20px;
+    padding: 10px;
+    width: 250px;
     font-size: 18px;
     background-color: #535252;
     color: #fff;
@@ -21,7 +26,8 @@
 }
 
 .btn-dark {
-    padding: 10px 20px;
+    padding: 10px;
+    width: 250px;
     font-size: 18px;
     background-color: #1a1a1a;
     color: #fff;

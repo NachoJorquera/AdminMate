@@ -5,6 +5,7 @@ import './NotifierForm.css';
 import { Link, useParams } from 'react-router-dom';
 import { sendNotification } from '../WSP-API';
 import i18next from 'i18next';
+import Modal from './Modal';
 
 const NotifierForm = ( { onNotificationSent } ) => {
     const { apartment_number } = useParams();
@@ -13,7 +14,8 @@ const NotifierForm = ( { onNotificationSent } ) => {
     const [deliveryType, setDeliveryType] = useState('');
     const [notificationMethod, setNotificationMethod] = useState('');
     const { t } = useTranslation();
-
+    const [modalChildren, setModalChildren] = useState('');
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         const fetchResidents = async () => {
@@ -27,16 +29,6 @@ const NotifierForm = ( { onNotificationSent } ) => {
         };
         fetchResidents();
     }, [apartment_number]);
-
-    // const handleButtonClick = (residentName) => {
-    //     setSelectedResidents(prevSelected => {
-    //         if (prevSelected.includes(residentName)) {
-    //             return prevSelected.filter(name => name !== residentName);
-    //         } else {
-    //             return [...prevSelected, residentName];
-    //         }
-    //     });
-    // };
 
     const handleButtonClick = (resident) => {
         setSelectedResidents(prevSelected => {
@@ -67,19 +59,48 @@ const NotifierForm = ( { onNotificationSent } ) => {
         setNotificationMethod(event.target.value);
     };
 
-    const handleNotify = () => {
+    const uiValidation = () => {
+        if (selectedResidents.length === 0 && !deliveryType && !notificationMethod) {
+            setModalChildren(t('errorNothingSelected'));
+            setShowModal(true);
+            // alert(t('errorNothingSelected'));
+            return false;
+        }
         if (selectedResidents.length === 0) {
-            alert(t('errorNoResidentSelected'));
-            return;
+            setModalChildren(t('errorNoResidentSelected'));
+            setShowModal(true);
+            // alert(t('errorNoResidentSelected'));
+            return false;
         }
         if (!deliveryType) {
-            alert(t('errorNoDeliveryTypeSelected'));
-            return;
+            setModalChildren(t('errorNoDeliveryTypeSelected'));
+            setShowModal(true);
+            // alert(t('errorNoDeliveryTypeSelected'));
+            return false;
         }
         if (!notificationMethod) {
-            alert(t('errorNoNotificationMethodSelected'));
-            return;
+            setModalChildren(t('errorNoNotificationMethodSelected'));
+            setShowModal(true);
+            // alert(t('errorNoNotificationMethodSelected'));
+            return false;
         }
+        return true;
+    };
+
+    const handleNotify = () => {
+        if (!uiValidation()) return;
+        // if (selectedResidents.length === 0) {
+        //     alert(t('errorNoResidentSelected'));
+        //     return;
+        // }
+        // if (!deliveryType) {
+        //     alert(t('errorNoDeliveryTypeSelected'));
+        //     return;
+        // }
+        // if (!notificationMethod) {
+        //     alert(t('errorNoNotificationMethodSelected'));
+        //     return;
+        // }
 
         const notificationData = {
             residents: selectedResidents,
@@ -97,50 +118,55 @@ const NotifierForm = ( { onNotificationSent } ) => {
                     })
                     .catch(error => {
                         console.error (`Error sending notification to: ${resident.name}`, error);
-                        alert(`Error sending notification to: ${resident.name}`, error);
+                        setModalChildren(`Error sending notification to: ${resident.name}`);
+                        setShowModal(true);
+                        // alert(`Error sending notification to: ${resident.name}`, error);
                     });
             });
         }
     };
     
   return (
-    <div className='container-fluid'>
-        <div className='card-body'>
-            <h2 className='card-title'>{t('notidetails')}</h2>
-            <h4 className='card-subtitle'>{t('notidetails2')}{apartment_number}</h4>
-            <div className='card-content'>
-                <div className='resident-buttons'>
-                    <label className='label'>{t('selectResi')}</label>
-                    <div className='container-fluid'>
-                        {residents.map((resident, index) => (
-                            <button key={index} className={`resident-button ${selectedResidents.some(selected => selected.name === resident.name) ? 'selected' : ''}`} onClick={() => handleButtonClick(resident)}>
-                                {resident.name}
-                            </button>
-                        ))}
+    <div className='d-flex justify-content-center align-items-center'>
+        <div className='container-fluid'>
+            <div className='card-body'>
+                <h2 className='card-title'>{t('notidetails')}</h2>
+                <h4 className='card-subtitle'>{t('notidetails2')}{apartment_number}</h4>
+                <div className='card-content'>
+                    <div className='resident-buttons'>
+                        <label className='label'>{t('selectResi')}</label>
+                        <div className='container'>
+                            {residents.map((resident, index) => (
+                                <button key={index} className={`resident-button ${selectedResidents.some(selected => selected.name === resident.name) ? 'selected' : ''}`} onClick={() => handleButtonClick(resident)}>
+                                    {resident.name}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                    <div className='select'>
+                        <label htmlFor='deliveryType' className='label'>{t('deliType')}</label>
+                        <select id='deliveryType' className='select-box' value={deliveryType} onChange={handleDeliveryType}>
+                            <option value='' disabled selected>{t('selectType')}</option>
+                            <option value='delivery'>{t('deli')}</option>
+                            <option value='package'>{t('package')}</option>
+                            <option value='mail'>{t('mail')}</option>
+                        </select>
+                    </div>
+                    <div className='select'>
+                        <label htmlFor='notificationType' className='label'>{t('notiType')}</label>
+                        <select id='notificationType' className='select-box' value={notificationMethod} onChange={handleNotificationMethod}>
+                            <option value='' disabled selected>{t('selectType')}</option>
+                            <option value='wsp'>WhatsApp</option>
+                            <option value='email'>{t('email')}</option>
+                            <option value='sms'>SMS</option>
+                        </select>
                     </div>
                 </div>
-                <div className='select'>
-                    <label htmlFor='deliveryType' className='label'>{t('deliType')}</label>
-                    <select id='deliveryType' className='select-box' value={deliveryType} onChange={handleDeliveryType}>
-                        <option value='' disabled selected>{t('selectType')}</option>
-                        <option value='delivery'>{t('deli')}</option>
-                        <option value='package'>{t('package')}</option>
-                        <option value='mail'>{t('mail')}</option>
-                    </select>
+                <div className='card-footer'>
+                    <Link to='/deliveries' className='button-1'>{t('back')}</Link>
+                    <button className='button-2' onClick={handleNotify}>{t('notify')}</button>
                 </div>
-                <div className='select'>
-                    <label htmlFor='notificationType' className='label'>{t('notiType')}</label>
-                    <select id='notificationType' className='select-box' value={notificationMethod} onChange={handleNotificationMethod}>
-                        <option value='' disabled selected>{t('selectType')}</option>
-                        <option value='wsp'>WhatsApp</option>
-                        <option value='email'>{t('email')}</option>
-                        <option value='sms'>SMS</option>
-                    </select>
-                </div>
-            </div>
-            <div className='card-footer'>
-                <Link to='/deliveries' className='button-1'>{t('back')}</Link>
-                <button className='button-2' onClick={handleNotify}>{t('notify')}</button>
+                <Modal show={showModal} onClose={() => setShowModal(false)} children={modalChildren} />
             </div>
         </div>
     </div>

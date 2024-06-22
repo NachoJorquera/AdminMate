@@ -49,9 +49,9 @@ function Login() {
   return (
     <>
     <Navbar2 />
-    <PageHeading><FontAwesomeIcon icon={faBuilding} />AdminMate</PageHeading>
-    <div className='d-flex justify-content-center align-items-center bg-dark'>
-        <div className='container-fluid p-3 bg-white rounded w-25'>
+    <PageHeading>AdminMate</PageHeading>
+    <div className='d-flex justify-content-center align-items-center'>
+        <div className='container-fluid p-3 bg-white rounded w-75'>
             <form onSubmit={handleSubmit}>
                 <div className='text-center'>
                     <h1>{t('signin')}</h1>
@@ -64,10 +64,13 @@ function Login() {
                 <div className='mb-3'>
                     <label htmlFor='password'><strong>{t('password')}</strong></label>
                     <input type='password'placeholder={t('enterPassword')} name='password' onChange={e => setValues({...values, password: e.target.value})} className='form-control rounded-3' />
+                    <p><a href='#'>Forgot Password?</a></p>
                 </div>
-                <div className='d-grid gap-4 col-10 mx-auto'>
-                    <button type='submit' className='btn btn-dark w-100 rounded-3'>{t('login')}</button>
-                    <Link to='/register' className='btn btn-outline-dark border-2 w-100 rounded-3 text-decoration-none'>{t('createAccount')}</Link>
+                <div className='col-6 mx-auto mb-5'>
+                    <button type='submit' className='btn btn-dark w-100 rounded-3'>{t('login')}</button>    
+                </div>
+                <div className='text-center'>
+                    <p><a href='/register'>Dont have an account? <strong>Sign-up</strong></a></p>
                 </div>
             </form>
         </div>

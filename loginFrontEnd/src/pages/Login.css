@@ -1,9 +1,10 @@
-.d-flex .container-fluid {
-    margin-top: 7rem;
+.container-fluid {
+    margin: 2rem;
 }
 
 .text-center {
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .text-center h1 {
@@ -24,7 +25,7 @@
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 .btn-dark {
@@ -48,4 +49,13 @@
 .btn-outline-dark:active {
     background-color: rgb(44, 108, 87);
     transform: scale(0.99);
+}
+
+p > a {
+    color: rgb(44, 108, 87);
+    text-decoration-line: underline;
+}
+
+p> a:hover {
+    color: #717872;
 }

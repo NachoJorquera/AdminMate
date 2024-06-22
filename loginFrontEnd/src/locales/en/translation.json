@@ -48,5 +48,6 @@
     "apartError": "There is no registered apartment for that number",
     "errorNoResidentSelected": "No resident selected",
     "errorNoDeliveryTypeSelected": "No delivery type selected",
-    "errorNoNotificationMethodSelected": "No notification method selected"
+    "errorNoNotificationMethodSelected": "No notification method selected",
+    "errorNothingSelected": "You have nothing selected"
 }

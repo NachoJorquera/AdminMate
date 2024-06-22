@@ -49,9 +49,9 @@ function Register() {
   return (
     <>
     <Navbar2 />
-    <PageHeading><FontAwesomeIcon icon={faBuilding} />AdminMate</PageHeading>
-    <div className='d-flex justify-content-center align-items-center bg-dark'>
-        <div className='container-fluid p-3 bg-white rounded w-25'>
+    <PageHeading>AdminMate</PageHeading>
+    <div className='d-flex justify-content-center align-items-center'>
+        <div className='container-fluid p-3 bg-white rounded w-75'>
             <form onSubmit={handleSubmit}>
                 <div className='text-center'>
                     <h1>{t('signup')}</h1>

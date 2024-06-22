@@ -48,5 +48,6 @@
     "apartError": "No existe un departamento registrado para ese número",
     "errorNoResidentSelected": "No se ha seleccionado un residente",
     "errorNoDeliveryTypeSelected": "No se selecciónó tipo de encomienda",
-    "errorNoNotificationMethodSelected": "No se seleccionó tipo de notificación"
+    "errorNoNotificationMethodSelected": "No se seleccionó tipo de notificación",
+    "errorNothingSelected": "No se ha seleccionado nada"
 }

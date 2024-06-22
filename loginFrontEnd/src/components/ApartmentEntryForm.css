@@ -9,15 +9,15 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    margin: 6rem;
+    margin: 2rem;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-title {
-    margin: 40px;
-    font-size: 40px;
+    padding: 30px;
+    font-size: 2rem;
     font-weight: bold;
     transition: font-size 0.3s linear;
 }
@@ -61,8 +61,12 @@
 
   .card-footer p {
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: #fff;
     background-color: rgb(196, 3, 3);
     border-radius: 10px;
+  }
+
+  .modal-body {
+    font-size: 18px;
   }

@@ -34,10 +34,10 @@ function Navbar2() {
     return (
         <>
             <div className='navbar2'>
-                {/* <div className='logo'>
+                <div className='logo'>
                     <i><FontAwesomeIcon icon={faBuilding} /></i>
-                    <a href='/home'>AdminMate</a>
-                </div> */}
+                    {/* <a href='/home'>AdminMate</a> */}
+                </div>
                 <div className='switcher'>
                     <LanguageSwitcher />
                 </div>
