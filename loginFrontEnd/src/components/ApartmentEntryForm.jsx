@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './ApartmentEntryForm.css';
 import Modal from './Modal';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 
 const ApartmentEntryForm = () => {
     const [apartmentNumber, setApartmentNumber] = useState('');
@@ -45,11 +49,15 @@ const ApartmentEntryForm = () => {
 
   return (
     <div className='d-flex justify-content-center align-items-center'>
-        <div className='container-fluid'>
-            <div className='card-body'>
+        <div className='container-fluid p-3 rounded w-75'>
+            <div className='card-body p-1'>
                 <label className='card-title' htmlFor='apartmentNumber'>{t('apartNum')}</label>
                 <form className='card-form' onSubmit={handleSubmit}>
-                    <input className='form-control' type='number' id='apartmentNumber' value={apartmentNumber} onChange={handleInputChange} required placeholder={t('apartInput')} />
+                    <InputGroup size="lg">
+                        <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faBuilding} /></InputGroup.Text>
+                            <Form.Control type='number' id='apartmentNumber' value={apartmentNumber} onChange={handleInputChange} required placeholder={t('apartInput')} aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                            />
+                    </InputGroup>
                     <button className='card-button' onClick={handleSubmit}>{t('next')}</button>
                 </form>
             </div>

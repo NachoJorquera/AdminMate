@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    /* padding: 10px; */
     margin: 2rem;
     background-color: #ffffff;
     border-radius: 8px;
@@ -20,15 +20,17 @@
     font-size: 2rem;
     font-weight: bold;
     transition: font-size 0.3s linear;
+    margin-bottom: 1rem;
 }
 
 .card-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 3rem;
 }
 
-.form-control {
+/* .card-form > .form-control {
     border-color: #1a1a1a;
     padding: 8px;
     font-size: 18px;
@@ -36,37 +38,37 @@
     margin-top: 1rem;
     border-radius: 10px;
     border: 1px solid;
+} */
+
+.card-button {
+  padding: 10px 150px;
+  font-size: 18px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 3rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
- .card-button {
-    padding: 10px 150px;
-    font-size: 18px;
-    background-color: #1a1a1a;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 3rem;
-    transition: transform 0.3s ease, background-color 0.3s ease;
- }
+.card-button:hover {
+  background-color: rgb(44, 108, 87);
+  transform: scale(1.03);
+}
 
- .card-button:hover {
-    background-color: rgb(44, 108, 87);
-    transform: scale(1.03);
-  }
+.card-button:active {
+  transform: scale(0.99);
+}
 
-  .card-button:active {
-    transform: scale(0.99);
-  }
+.card-footer p {
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: rgb(196, 3, 3);
+  border-radius: 10px;
+}
 
-  .card-footer p {
-    padding: 10px 20px;
-    font-size: 1.6rem;
-    color: #fff;
-    background-color: rgb(196, 3, 3);
-    border-radius: 10px;
-  }
-
-  .modal-body {
-    font-size: 18px;
-  }
+.modal-body {
+  font-size: 18px;
+}

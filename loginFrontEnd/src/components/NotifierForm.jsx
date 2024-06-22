@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import { sendNotification } from '../WSP-API';
 import i18next from 'i18next';
 import Modal from './Modal';
+import FormSelect from 'react-bootstrap/FormSelect';
 
 const NotifierForm = ( { onNotificationSent } ) => {
     const { apartment_number } = useParams();
@@ -128,8 +129,8 @@ const NotifierForm = ( { onNotificationSent } ) => {
     
   return (
     <div className='d-flex justify-content-center align-items-center'>
-        <div className='container-fluid'>
-            <div className='card-body'>
+        <div className='container-fluid p-3 rounded w-75'>
+            <div className='card-body p-2'>
                 <h2 className='card-title'>{t('notidetails')}</h2>
                 <h4 className='card-subtitle'>{t('notidetails2')}{apartment_number}</h4>
                 <div className='card-content'>
@@ -143,7 +144,26 @@ const NotifierForm = ( { onNotificationSent } ) => {
                             ))}
                         </div>
                     </div>
-                    <div className='select'>
+                    <br />
+                    <div className='container'>
+                        <FormSelect value={deliveryType} onChange={handleDeliveryType} size='lg'>
+                            <option value='' disabled selected>{t('selectType')}</option>
+                            <option value='delivery'>{t('deli')}</option>
+                            <option value='package'>{t('package')}</option>
+                            <option value='mail'>{t('mail')}</option>
+                        </FormSelect>
+                    </div>
+                    <br />
+                    <div className='container'>
+                        <FormSelect value={notificationMethod} onChange={handleNotificationMethod} size='lg'>
+                            <option value='' disabled selected>{t('notiMethod')}</option>
+                            <option value='wsp'>WhatsApp</option>
+                            <option value='email'>{t('email')}</option>
+                            <option value='sms'>SMS</option>
+                        </FormSelect>
+                    </div>
+                    
+                    {/* <div className='select'>
                         <label htmlFor='deliveryType' className='label'>{t('deliType')}</label>
                         <select id='deliveryType' className='select-box' value={deliveryType} onChange={handleDeliveryType}>
                             <option value='' disabled selected>{t('selectType')}</option>
@@ -151,8 +171,8 @@ const NotifierForm = ( { onNotificationSent } ) => {
                             <option value='package'>{t('package')}</option>
                             <option value='mail'>{t('mail')}</option>
                         </select>
-                    </div>
-                    <div className='select'>
+                    </div> */}
+                    {/* <div className='select'>
                         <label htmlFor='notificationType' className='label'>{t('notiType')}</label>
                         <select id='notificationType' className='select-box' value={notificationMethod} onChange={handleNotificationMethod}>
                             <option value='' disabled selected>{t('selectType')}</option>
@@ -160,7 +180,7 @@ const NotifierForm = ( { onNotificationSent } ) => {
                             <option value='email'>{t('email')}</option>
                             <option value='sms'>SMS</option>
                         </select>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='card-footer'>
                     <Link to='/deliveries' className='button-1'>{t('back')}</Link>
