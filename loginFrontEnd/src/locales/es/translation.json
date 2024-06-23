@@ -49,5 +49,18 @@
     "errorNoResidentSelected": "No se ha seleccionado un residente",
     "errorNoDeliveryTypeSelected": "No se selecciónó tipo de encomienda",
     "errorNoNotificationMethodSelected": "No se seleccionó tipo de notificación",
-    "errorNothingSelected": "No se ha seleccionado nada"
+    "errorNothingSelected": "No se ha seleccionado nada",
+    "plateSearch" : "Buscar datos por patente",
+    "plate" : "Patente:",
+    "search" : "Buscar",
+    "results" : "Resultados:",
+    "nameParking" : "Nombre:",
+    "surnameParking" : "Apellido:",
+    "departmentParking" : "Departamento:",
+    "parkingParking" : "Estacionamiento:",
+    "getPlate" : "Ingresa la patente",
+    "getSurname" : "Ingresa tu apellido", 
+    "getDepartment" : "Ingresa el departamento",
+    "getParking" : "Ingresa el número de estacionamiento",
+    "send" : "Enviar"
 }

@@ -49,5 +49,18 @@
     "errorNoResidentSelected": "No resident selected",
     "errorNoDeliveryTypeSelected": "No delivery type selected",
     "errorNoNotificationMethodSelected": "No notification method selected",
-    "errorNothingSelected": "You have nothing selected"
+    "errorNothingSelected": "You have nothing selected",
+    "plateSearch" : "Search data from plate",
+    "plate" : "Plate:",
+    "search" : "Search",
+    "results" : "Results:",
+    "nameParking" : "Name:",
+    "surnameParking" : "Second Name:",
+    "departmentParking" : "Department:",
+    "parkingParking" : "Parking:",
+    "getPlate" : "Enter your plate",
+    "getSurname" : "Enter your second name", 
+    "getDepartment" : "Enter your department",
+    "getParking" : "Enter your parking number",
+    "send" : "Send"
 }

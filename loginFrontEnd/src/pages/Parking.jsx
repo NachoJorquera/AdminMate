@@ -18,7 +18,12 @@ function Parking() {
   const [searchPatente, setSearchPatente] = useState('');
   const [searchResult, setSearchResult] = useState(null);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language); // Activa el cambio de idioma
+    localStorage.setItem('i18nextLng', language); // Almacena el lenguaje seleccionado en localStorage
+};
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -66,28 +71,28 @@ function Parking() {
       <div className='espacio'>
         <div className='formulario espacio'>
 
-        <h3>Buscar datos por patente</h3>
+        <h3>{t('plateSearch')}</h3>
           <Form className='espacio_abajo'>
             <Form.Group controlId="searchPatente">
-              <Form.Label>Patente:</Form.Label>
+              <Form.Label>{t('plate')}</Form.Label>
               <Form.Control 
                 type="text" 
-                placeholder="Ingresa la patente"
+                placeholder={t('getPlate')}
                 value={searchPatente}
                 onChange={(e) => setSearchPatente(e.target.value)}
               />
             </Form.Group>
             <Button variant="primary" onClick={handleSearch}>
-              Buscar
+            {t('search')}
             </Button>
           </Form>
           {searchResult && (
             <div className='resultado'>
-              <h4>Resultados:</h4>
-              <p><strong>Nombre:</strong> {searchResult.nombre}</p>
-              <p><strong>Apellido:</strong> {searchResult.apellido}</p>
-              <p><strong>Departamento:</strong> {searchResult.departamento}</p>
-              <p><strong>Estacionamiento:</strong> {searchResult.estacionamiento}</p>
+              <h4>{t('results')}</h4>
+              <p><strong>{t('nameParking')}</strong> {searchResult.nombre}</p>
+              <p><strong>{t('surnameParking')}</strong> {searchResult.apellido}</p>
+              <p><strong>{t('departmentParking')}</strong> {searchResult.departamento}</p>
+              <p><strong>{t('parkingParking')}</strong> {searchResult.estacionamiento}</p>
             </div>
           )}
 
@@ -95,53 +100,53 @@ function Parking() {
             <Row>
               <Col>
                 <Form.Group controlId="nombre">
-                  <Form.Label>Nombre:</Form.Label>
+                  <Form.Label>{t('nameParking')}</Form.Label>
                   <Form.Control 
                     type="text" 
-                    placeholder="Ingresa tu nombre" 
+                    placeholder={t('enterName')}
                     value={nombre}
                     onChange={(e) => setNombre(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group controlId="patente">
-                  <Form.Label>Patente:</Form.Label>
+                  <Form.Label>{t('plate')}</Form.Label>
                   <Form.Control 
                     type="text" 
-                    placeholder="Ingresa la patente" 
+                    placeholder={t('getPlate')}
                     value={patente}
                     onChange={(e) => setPatente(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group>
                 <Button variant="primary" type="submit">
-              Enviar
+                {t('send')}
             </Button>
                 </Form.Group>
               </Col>
               <Col>
                 <Form.Group controlId="apellido">
-                  <Form.Label>Apellido:</Form.Label>
+                  <Form.Label>{t('surnameParking')}</Form.Label>
                   <Form.Control 
                     type="text" 
-                    placeholder="Ingresa tu apellido"
+                    placeholder={t('getSurname')}
                     value={apellido}
                     onChange={(e) => setApellido(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group controlId="departamento">
-                  <Form.Label>Departamento:</Form.Label>
+                  <Form.Label>{t('departmentParking')}</Form.Label>
                   <Form.Control 
                     type="text" 
-                    placeholder="Ingresa el departamento"
+                    placeholder={t('getDepartment')}
                     value={departamento}
                     onChange={(e) => setDepartamento(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group controlId="estacionamiento">
-                  <Form.Label>Estacionamiento:</Form.Label>
+                  <Form.Label>{t('parkingParking')}</Form.Label>
                   <Form.Control 
                     type="number" 
-                    placeholder="Ingresa el número de estacionamiento"
+                    placeholder={t('getParking')}
                     value={estacionamiento}
                     onChange={(e) => setEstacionamiento(e.target.value)}
                   />
