@@ -106,4 +106,37 @@ router.get('/deliveries/:apartment_number', (req, res) => {
     });
 });
 
+router.post('/park', (req, res) => {
+    const { patente, nombre, apellido, departamento, estacionamiento } = req.body;
+
+    const sqlInsert = "INSERT INTO parking (patente, nombre, apellido, departamento, estacionamiento) VALUES (?, ?, ?, ?, ?)";
+    db.query(sqlInsert, [patente, nombre, apellido, departamento, estacionamiento], (err, result) => {
+        if (err) {
+            console.error('Error inserting data:', err);
+            res.status(500).json({ status: 'error', message: 'Error inserting data' });
+        } else {
+            res.status(200).json({ status: 'success', message: 'Data inserted successfully' });
+        }
+    });
+});
+
+router.get('/parking/:patente', (req, res) => {
+    const patente = req.params.patente;
+    const sqlSearch = "SELECT nombre, apellido, departamento, estacionamiento FROM parking WHERE patente = ?";
+
+    db.query(sqlSearch, [patente], (err, result) => {
+        if (err) {
+            console.error('Error fetching data:', err);
+            res.status(500).json({ status: 'error', message: 'Error fetching data' });
+        } else {
+            if (result.length > 0) {
+                res.status(200).json({ status: 'success', data: result[0] });
+            } else {
+                res.status(404).json({ status: 'error', message: 'No data found' });
+            }
+        }
+    });
+});
+
+
 export default router;

@@ -9,7 +9,7 @@ import logger from './utils/logger.js';
 const app = express(); // Creación de aplicación Express
 app.use(express.json()); // Middleware para parsear JSON
 app.use(cors({
-    origin: ["http://localhost:5173"], // Config de CORS para aceptar solicitudes del origen indicado
+    origin: ["http://localhost:5173", 'http://127.0.0.1:5173'], // Config de CORS para aceptar solicitudes del origen indicado
     methods: ["POST", "GET"], // Métodos permitidos
     credentials: true // Permite el envío de cookies y headers de autorización
 }));
@@ -20,7 +20,7 @@ app.get('/', verifyUser, (req, res) => {
     return res.json({Status: "Success", name: req.name});
 });
 
-app.use(authRoutes);
+app.use('/', authRoutes);
 
 // Configuración del servidor para escuchar en el puerto específico
 app.listen(8081, () => {
