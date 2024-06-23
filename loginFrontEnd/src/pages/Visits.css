@@ -1,0 +1,86 @@
+/* General */
+body.visits-body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #010101; /* Fondo negro */
+    color: white;
+  }
+  
+  /* Page Heading */
+  .visits-page-heading {
+    text-align: center;
+    background-color: #000; /* Fondo negro */
+    color: white;
+    padding: 50px 0;
+    font-size: 2.5em;
+    margin: 0;
+  }
+  
+  /* Visits Container */
+  .visits-container {
+    padding: 20px;
+    background-color: #000; /* Fondo negro para el contenedor */
+    color: white; /* Color de texto blanco */
+    max-width: 800px;
+    margin: 0 auto; /* Centrando el contenedor */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra ligera */
+    border-radius: 8px;
+    text-align: center; /* Centrar el texto dentro del contenedor */
+  }
+  
+  .visits-h1, .visits-h2 {
+    color: #fff; /* Color de texto blanco */
+  }
+  
+  .visits-form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Alinear a la izquierda los elementos del formulario */
+    color: white; /* Color de texto blanco */
+  }
+  
+  .visits-form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #28a745; /* Fondo verde */
+    color: white; /* Color de texto blanco */
+  }
+  
+  .visits-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .visits-btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .visits-btn-primary:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+  }
+  
+  .visits-alert {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d4edda; /* Verde claro para las alertas */
+    color: #155724; /* Verde oscuro para el texto de las alertas */
+  }
+  
+  .visits-mt-5 {
+    margin-top: 3rem;
+  }
+  
+  .visits-mt-4 {
+    margin-top: 1.5rem;
+  }
+  
+  .visits-mt-3 {
+    margin-top: 1rem;
+  }
+  
