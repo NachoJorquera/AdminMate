@@ -150,25 +150,6 @@ const NotifierForm = ( { onNotificationSent } ) => {
                             <option value='sms'>SMS</option>
                         </FormSelect>
                     </div>
-                    
-                    {/* <div className='select'>
-                        <label htmlFor='deliveryType' className='label'>{t('deliType')}</label>
-                        <select id='deliveryType' className='select-box' value={deliveryType} onChange={handleDeliveryType}>
-                            <option value='' disabled selected>{t('selectType')}</option>
-                            <option value='delivery'>{t('deli')}</option>
-                            <option value='package'>{t('package')}</option>
-                            <option value='mail'>{t('mail')}</option>
-                        </select>
-                    </div> */}
-                    {/* <div className='select'>
-                        <label htmlFor='notificationType' className='label'>{t('notiType')}</label>
-                        <select id='notificationType' className='select-box' value={notificationMethod} onChange={handleNotificationMethod}>
-                            <option value='' disabled selected>{t('selectType')}</option>
-                            <option value='wsp'>WhatsApp</option>
-                            <option value='email'>{t('email')}</option>
-                            <option value='sms'>SMS</option>
-                        </select>
-                    </div> */}
                 </div>
                 <div className='card-footer'>
                     <Link to='/deliveries' className='button-1'>{t('back')}</Link>
