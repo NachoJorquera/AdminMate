@@ -90,18 +90,6 @@ const NotifierForm = ( { onNotificationSent } ) => {
 
     const handleNotify = () => {
         if (!uiValidation()) return;
-        // if (selectedResidents.length === 0) {
-        //     alert(t('errorNoResidentSelected'));
-        //     return;
-        // }
-        // if (!deliveryType) {
-        //     alert(t('errorNoDeliveryTypeSelected'));
-        //     return;
-        // }
-        // if (!notificationMethod) {
-        //     alert(t('errorNoNotificationMethodSelected'));
-        //     return;
-        // }
 
         const notificationData = {
             residents: selectedResidents,
