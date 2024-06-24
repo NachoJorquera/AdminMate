@@ -3,10 +3,10 @@ import '../pages/Visits.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const FormFrequentVisit = ({ formData, handleChange, handleSubmit }) => (
-  <form onSubmit={handleSubmit} className="visits-form card p-4 shadow-sm">
+  <form onSubmit={handleSubmit} className="visits-form p-4">
     <h2 className="text-center mb-4">Agregar Visita Frecuente</h2>
     <div className="mb-3">
-      <label className="form-label">NÃºmero de departamento</label>
+      <label className="form-label">Número de departamento</label>
       <input
         type="text"
         className="form-control"
@@ -59,7 +59,9 @@ const FormFrequentVisit = ({ formData, handleChange, handleSubmit }) => (
         onChange={handleChange}
       />
     </div>
-    <button type="submit" className="btn btn-primary">Agregar</button>
+    <div className='d-flex justify-content-center'>
+      <button type="submit" className="card-button">Agregar</button>
+    </div>
   </form>
 );
 
