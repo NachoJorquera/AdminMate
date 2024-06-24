@@ -71,37 +71,41 @@ function Visits() {
     <>
       <Navbar />
       <PageHeading>{t('Registro de Visitas')}</PageHeading>
-        <div className="container visits-container">
-          <div className="btn-container d-flex justify-content-center mb-4">
-            <button className="btn btn-primary mx-2" onClick={() => setVisitType('frequent')}>Visitas Frecuentes</button>
-            <button className="btn btn-secondary mx-2" onClick={() => setVisitType('non-frequent')}>Otras Visitas</button>
-            <button className="btn btn-info mx-2" onClick={() => setVisitType('verify')}>Verificar Visitas</button>
-          </div>
-          <div className="d-flex justify-content-center">
-            {visitType === 'frequent' && (
-              <FormFrequentVisit
-                formData={formData}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-              />
-            )}
-            {visitType === 'non-frequent' && (
-              <FormNonFrequentVisit
-                formData={formData}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-              />
-            )}
-            {visitType === 'verify' && (
-              <VerifyVisit
-                visitorData={visitorData}
-                handleVisitorChange={handleVisitorChange}
-                handleScan={handleScan}
-                isFrequent={isFrequent}
-              />
-            )}
+      <div className='d-flex justify-content-center align-items-center'>
+        <div className='container-fluid p-3 rounded'>
+          <div className='card-body p-5'>
+            <div className="btn-container d-flex justify-content-center">
+              <button className="btn btn-primary mx-2" onClick={() => setVisitType('frequent')}>Visitas Frecuentes</button>
+              <button className="btn btn-secondary mx-2" onClick={() => setVisitType('non-frequent')}>Otras Visitas</button>
+              <button className="btn btn-info mx-2" onClick={() => setVisitType('verify')}>Verificar Visitas</button>
+            </div>
+            <div className="d-flex justify-content-center">
+              {visitType === 'frequent' && (
+                <FormFrequentVisit
+                  formData={formData}
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                />
+              )}
+              {visitType === 'non-frequent' && (
+                <FormNonFrequentVisit
+                  formData={formData}
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                />
+              )}
+              {visitType === 'verify' && (
+                <VerifyVisit
+                  visitorData={visitorData}
+                  handleVisitorChange={handleVisitorChange}
+                  handleScan={handleScan}
+                  isFrequent={isFrequent}
+                />
+              )}
+              </div>
           </div>
         </div>
+      </div>
     </>
   );
 }

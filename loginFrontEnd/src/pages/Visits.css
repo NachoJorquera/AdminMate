@@ -1,35 +1,32 @@
-/* General */
+/* 
 body.visits-body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #191736; /* Fondo negro */
+  background-color: #191736; 
   color: white;
 }
 
-/* Page Heading */
 .visits-page-heading {
   text-align: center;
-  background-color: #191736; /* Fondo negro */
+  background-color: #191736; 
   color: white;
   padding: 50px 0;
   font-size: 2.5em;
   margin: 0;
 }
 
-/* Visits Container */
 .visits-container {
   padding: 20px;
-  background-color: #191736; /* Fondo negro para el contenedor */
-  color: white; /* Color de texto blanco */
+  background-color: #191736; 
+  color: white;
   max-width: 1200px;
-  margin: 0 auto; /* Centrando el contenedor */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra ligera */
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /
   border-radius: 8px;
-  text-align: center; /* Centrar el texto dentro del contenedor */
+  text-align: center;
 }
 
-/* Button Container */
 .btn-container {
   display: flex;
   justify-content: center;
@@ -37,7 +34,6 @@ body.visits-body {
   margin-bottom: 20px;
 }
 
-/* Forms */
 .visits-form {
   display: flex;
   flex-direction: column;
@@ -47,8 +43,8 @@ body.visits-body {
 
 .visits-form-group {
   margin-bottom: 15px;
-  text-align: left; /* Alinear a la izquierda los elementos del formulario */
-  color: white; /* Color de texto blanco */
+  text-align: left; 
+  color: white;
 }
 
 .visits-form-control {
@@ -57,8 +53,8 @@ body.visits-body {
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  background-color: #28a745; /* Fondo verde */
-  color: white; /* Color de texto blanco */
+  background-color: #28a745; 
+  color: white; 
 }
 
 .visits-btn-primary {
@@ -71,17 +67,16 @@ body.visits-body {
 }
 
 .visits-btn-primary:hover {
-  background-color: #0056b3; /* Azul mÃ¡s oscuro al pasar el cursor */
+  background-color: #0056b3;
 }
 
 .visits-alert {
   padding: 10px;
   border-radius: 5px;
-  background-color: #d4edda; /* Verde claro para las alertas */
-  color: #155724; /* Verde oscuro para el texto de las alertas */
+  background-color: #d4edda; 
+  color: #155724; 
 }
 
-/* Verify Visit */
 .verify-visit-container {
   background-color: #333;
   color: white;
@@ -101,4 +96,4 @@ body.visits-body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-}
+} */

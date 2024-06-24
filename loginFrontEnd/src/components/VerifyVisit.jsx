@@ -3,8 +3,9 @@ import '../pages/Visits.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const VerifyVisit = ({ visitorData, handleVisitorChange, handleScan, isFrequent }) => (
-  <div className="card p-4 shadow-sm">
-    <h2 className="text-center mb-4">Verificar Visita</h2>
+  <div className='d-grid justify-content-center align-items-center'>
+    <div className="p-4 d-grid justify-content-center align-items-center">
+    <h2 className="mb-4">Verificar Visita</h2>
     <form onSubmit={handleScan}>
       <div className="mb-3">
         <label className="form-label">RUT</label>
@@ -17,7 +18,6 @@ const VerifyVisit = ({ visitorData, handleVisitorChange, handleScan, isFrequent 
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary w-100">Verificar</button>
     </form>
     {isFrequent !== null && (
       <div className={`mt-4 alert ${isFrequent ? 'alert-success' : 'alert-danger'}`}>
@@ -37,6 +37,11 @@ const VerifyVisit = ({ visitorData, handleVisitorChange, handleScan, isFrequent 
       </div>
     )}
   </div>
+  <div className='d-flex justify-content-center'>
+        <button type="submit" className="card-button">Verificar</button>
+      </div>
+  </div>
+  
 );
 
 export default VerifyVisit;
