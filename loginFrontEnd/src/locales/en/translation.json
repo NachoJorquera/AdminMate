@@ -63,5 +63,8 @@
     "getDepartment" : "Enter apartment",
     "getParking" : "Enter parking number",
     "send" : "Send",
-    "parkRegister": "Parking Registration"
+    "parkRegister": "Parking Registration",
+    "frequentVisit" : "Frequent visit!",
+    "arrivalTime" : "Time of arrival:",
+    "RUT" : "RUT:"
 }

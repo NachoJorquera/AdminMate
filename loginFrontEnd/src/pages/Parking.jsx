@@ -107,14 +107,14 @@ function Parking() {
                             <p><strong>{t('nameParking')}</strong> {searchResult.nombre}</p>
                             <p><strong>{t('departmentParking')}</strong> {searchResult.departamento}</p>
                             <p><strong>{t('parkingParking')}</strong> {searchResult.estacionamiento}</p>
-                            <p><strong>Hora llegada:</strong> {searchResult.created_at}</p>
+                            <p><strong>{t('arrivalTime')}</strong> {searchResult.created_at}</p>
                           </>
                         ) : sourceTable === 'frequent_visits' ? (
                           <>
                             <p><strong>{t('nameParking')}</strong> {searchResult.name}</p>
                             <p><strong>{t('RUT')}</strong> {searchResult.rut}</p>
                             <p><strong>{t('departmentParking')}</strong> {searchResult.department}</p>
-                            <h4>Visita frecuente!</h4>
+                            <h4>{t('frequentVisit')}</h4>
                           </>
                       ) : null}
             

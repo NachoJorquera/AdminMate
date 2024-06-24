@@ -63,5 +63,8 @@
     "getDepartment" : "Ingresa el departamento",
     "getParking" : "Ingresa el número de estacionamiento",
     "send": "Enviar",
-    "parkRegister": "Registro de Estacionamiento"
+    "parkRegister": "Registro de Estacionamiento",
+    "frequentVisit" : "Visita frecuente!",
+    "arrivalTime" : "Hora de llegada:",
+    "RUT" : "RUT:"
 }
