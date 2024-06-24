@@ -138,5 +138,57 @@ router.get('/parking/:patente', (req, res) => {
     });
 });
 
+// Ruta para agregar una visita frecuente
+router.post('/visitas/frequent', (req, res) => {
+    logger.debug(`Frequent visit data received: ${JSON.stringify(req.body)}`);
+    const { department, name, birthdate, rut, patente } = req.body;
+    const sql = 'INSERT INTO frequent_visits (department, name, birthdate, rut, patente, ingreso) VALUES (?, ?, ?, ?, ?, NOW())';
+    db.query(sql, [department, name, birthdate, rut, patente], (err, result) => {
+        if (err) {
+            logger.error("Error adding frequent visit", { error: err });
+            return res.status(500).json({ Error: "Error adding frequent visit", Details: err });
+        }
+        logger.info("Frequent visit added successfully", { visitor: name });
+        return res.status(200).json({ Status: "Success" });
+    });
+});
+
+// Ruta para verificar si una visita es frecuente
+router.get('/visitas/check/:rut', (req, res) => {
+    logger.debug(`Checking frequent visit for RUT: ${req.params.rut}`);
+    const { rut } = req.params;
+    const sql = 'SELECT * FROM frequent_visits WHERE rut = ?';
+    db.query(sql, [rut], (err, result) => {
+        if (err) {
+            logger.error("Error checking frequent visit", { error: err });
+            return res.status(500).json({ Error: "Error checking frequent visit" });
+        }
+        if (result.length > 0) {
+            const visitor = result[0];
+            visitor.birthdate = new Date(visitor.birthdate).toISOString(); // Asegurar el formato correcto
+            visitor.ingreso = new Date(visitor.ingreso).toISOString(); // Asegurar el formato correcto
+            logger.info("Frequent visit found", { visitor: result[0].name });
+            return res.status(200).json({ isFrequent: true, visitor });
+        } else {
+            logger.info("No frequent visit found for RUT", { rut });
+            return res.status(200).json({ isFrequent: false });
+        }
+    });
+});
+
+// Ruta para registrar una visita no frecuente
+router.post('/visitas/register', (req, res) => {
+    logger.debug(`Registering visit: ${JSON.stringify(req.body)}`);
+    const { department, name, birthdate, rut, patente } = req.body;
+    const sql = 'INSERT INTO other_visits (department, name, birthdate, rut, patente, ingreso) VALUES (?, ?, ?, ?, ?, NOW())';
+    db.query(sql, [department, name, birthdate, rut, patente], (err, result) => {
+        if (err) {
+            logger.error("Error registering visit", { error: err });
+            return res.status(500).json({ Error: "Error registering visit" });
+        }
+        logger.info("Visit registered successfully", { visitor: name });
+        return res.status(200).json({ Status: "Success" });
+    });
+});
 
 export default router;
