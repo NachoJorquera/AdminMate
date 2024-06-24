@@ -122,7 +122,8 @@ router.post('/park', (req, res) => {
 
 router.get('/parking/:patente', (req, res) => {
     const patente = req.params.patente;
-    const sqlSearch = "SELECT nombre, departamento, estacionamiento FROM parking WHERE patente = ?";
+    const sqlSearch = "SELECT name, department, rut FROM frequent_visits WHERE patente = ?";
+    const sqlSearch2 = "SELECT nombre, departamento, estacionamiento, created_at FROM parking WHERE patente = ?";
 
     db.query(sqlSearch, [patente], (err, result) => {
         if (err) {
@@ -130,9 +131,21 @@ router.get('/parking/:patente', (req, res) => {
             res.status(500).json({ status: 'error', message: 'Error fetching data' });
         } else {
             if (result.length > 0) {
-                res.status(200).json({ status: 'success', data: result[0] });
+                res.status(200).json({ status: 'success', source: 'frequent_visits', data: result[0] });
             } else {
-                res.status(404).json({ status: 'error', message: 'No data found' });
+                db.query(sqlSearch2, [patente], (err2, result2) => {
+                    if (err2) {
+                        console.error('Error fetching data:', err2);
+                        res.status(500).json({ status: 'error', message: 'Error fetching data' });
+                    } else {
+                        if (result2.length > 0) {
+                            res.status(200).json({ status: 'success', source: 'parking', data: result2[0] });
+                        } else {
+                            res.status(404).json({ status: 'error', message: 'No data found in both tables' });
+                        }
+                    }
+                });
+                //res.status(404).json({ status: 'error', message: 'No data found' });
             }
         }
     });

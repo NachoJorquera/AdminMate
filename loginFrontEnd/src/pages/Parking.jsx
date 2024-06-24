@@ -18,6 +18,8 @@ function Parking() {
   const [estacionamiento, setEstacionamiento] = useState('');
   const [searchPatente, setSearchPatente] = useState('');
   const [searchResult, setSearchResult] = useState(null);
+  const [searchMessage, setSearchMessage] = useState('');
+  const [sourceTable, setSourceTable] = useState('');
 
   const { t, i18n } = useTranslation();
 
@@ -53,20 +55,27 @@ function Parking() {
     event.preventDefault();
     
     axios.get(`http://localhost:8081/parking/${searchPatente}`)
-      .then(response => {
-        if (response.data.status === 'success') {
-          setSearchResult(response.data.data);
-          console.log('Datos encontrados')
-          return;
-        } else {
-          alert('No se encontraron datos');
-          return;
+    .then(response => {
+      if (response.data.status === 'success') {
+        setSearchResult(response.data.data);
+        setSourceTable(response.data.source);
+        if (response.data.source === 'frequent_visits') {
+          setSearchMessage('Datos encontrados en la tabla de frequent_visits.');
+        } else if (response.data.source === 'parking') {
+          setSearchMessage('Datos encontrados en la tabla de parking.');
         }
-      })
-      .catch(error => {
-        console.error('Error al buscar los datos: ', error);
-        alert('Error al buscar los datos');
-      });
+      } else {
+        setSearchMessage('No se encontraron datos en ninguna de las tablas');
+        setSearchResult(null);
+        setSourceTable('');
+      }
+    })
+    .catch(error => {
+      console.error('Error al buscar los datos: ', error);
+      setSearchMessage('Error al buscar los datos');
+      setSearchResult(null);
+      setSourceTable('');
+    });
   };
 
   return (
@@ -92,11 +101,27 @@ function Parking() {
                   {searchResult && (
                     <div className='results'>
                       <h4>{t('results')}</h4>
-                      <p><strong>{t('nameParking')}</strong> {searchResult.nombre}</p>
-                      <p><strong>{t('departmentParking')}</strong> {searchResult.departamento}</p>
-                      <p><strong>{t('parkingParking')}</strong> {searchResult.estacionamiento}</p>
+                      
+                      {sourceTable === 'parking' ? (
+                          <>
+                            <p><strong>{t('nameParking')}</strong> {searchResult.nombre}</p>
+                            <p><strong>{t('departmentParking')}</strong> {searchResult.departamento}</p>
+                            <p><strong>{t('parkingParking')}</strong> {searchResult.estacionamiento}</p>
+                            <p><strong>Hora llegada:</strong> {searchResult.created_at}</p>
+                          </>
+                        ) : sourceTable === 'frequent_visits' ? (
+                          <>
+                            <p><strong>{t('nameParking')}</strong> {searchResult.name}</p>
+                            <p><strong>{t('RUT')}</strong> {searchResult.rut}</p>
+                            <p><strong>{t('departmentParking')}</strong> {searchResult.department}</p>
+                            <h4>Visita frecuente!</h4>
+                          </>
+                      ) : null}
+            
                     </div>
                   )}
+
+
                 </div>
               </div>
             </div>
