@@ -75,9 +75,9 @@ function Visits() {
         <div className='container-fluid p-3 rounded'>
           <div className='card-body p-5'>
             <div className="btn-container d-flex justify-content-center">
-              <button className="btn btn-primary mx-2" onClick={() => setVisitType('frequent')}>Visitas Frecuentes</button>
-              <button className="btn btn-secondary mx-2" onClick={() => setVisitType('non-frequent')}>Otras Visitas</button>
-              <button className="btn btn-info mx-2" onClick={() => setVisitType('verify')}>Verificar Visitas</button>
+              <button className="btn btn-dark mx-2" onClick={() => setVisitType('frequent')}>{t('freqVisits')}</button>
+              <button className="btn btn-dark mx-2" onClick={() => setVisitType('non-frequent')}>{t('otherVisits')}</button>
+              <button className="btn btn-dark mx-2" onClick={() => setVisitType('verify')}>{t('verifyVisits')}</button>
             </div>
             <div className="d-flex justify-content-center">
               {visitType === 'frequent' && (

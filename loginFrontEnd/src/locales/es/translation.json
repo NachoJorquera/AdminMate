@@ -66,5 +66,11 @@
     "parkRegister": "Registro de Estacionamiento",
     "frequentVisit" : "Visita frecuente!",
     "arrivalTime" : "Hora de llegada:",
-    "RUT" : "RUT:"
+    "RUT" : "RUT:",
+    "freqVisits": "Visitas Frecuentes",
+    "otherVisits": "Otras Visitas",
+    "verifyVisits": "Verificar Visitas",
+    "addFreqVisit": "Add Frequent Visit",
+    "forgotPass": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes una cuenta? "
 }
