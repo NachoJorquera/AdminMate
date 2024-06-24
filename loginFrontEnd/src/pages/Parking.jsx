@@ -5,7 +5,6 @@ import './Parking.css';
 import { useTranslation } from 'react-i18next';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
@@ -15,7 +14,6 @@ import { faCar } from "@fortawesome/free-solid-svg-icons";
 function Parking() {
   const [patente, setPatente] = useState('');
   const [nombre, setNombre] = useState('');
-  // const [apellido, setApellido] = useState('');
   const [departamento, setDepartamento] = useState('');
   const [estacionamiento, setEstacionamiento] = useState('');
   const [searchPatente, setSearchPatente] = useState('');
