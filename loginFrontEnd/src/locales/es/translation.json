@@ -62,5 +62,6 @@
     "getSurname" : "Ingresa tu apellido", 
     "getDepartment" : "Ingresa el departamento",
     "getParking" : "Ingresa el número de estacionamiento",
-    "send" : "Enviar"
+    "send": "Enviar",
+    "parkRegister": "Registro de Estacionamiento"
 }

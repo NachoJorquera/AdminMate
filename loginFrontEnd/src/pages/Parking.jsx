@@ -4,15 +4,18 @@ import PageHeading from '../components/PageHeading';
 import './Parking.css';
 import { useTranslation } from 'react-i18next';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCar } from "@fortawesome/free-solid-svg-icons";
 
 function Parking() {
   const [patente, setPatente] = useState('');
   const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState('');
+  // const [apellido, setApellido] = useState('');
   const [departamento, setDepartamento] = useState('');
   const [estacionamiento, setEstacionamiento] = useState('');
   const [searchPatente, setSearchPatente] = useState('');
@@ -28,7 +31,7 @@ function Parking() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const formData = { patente, nombre, apellido, departamento, estacionamiento };
+    const formData = { patente, nombre, departamento, estacionamiento };
 
     axios.post('http://localhost:8081/park', formData)
       .then(response => {
@@ -36,7 +39,6 @@ function Parking() {
           alert('Datos enviados exitosamente');
           setPatente('');
           setNombre('');
-          setApellido('');
           setDepartamento('');
           setEstacionamiento('');
         } else {
@@ -49,13 +51,18 @@ function Parking() {
       });
   };
 
-  const handleSearch = () => {
+  const handleSearch = (event) => {
+    event.preventDefault();
+    
     axios.get(`http://localhost:8081/parking/${searchPatente}`)
       .then(response => {
         if (response.data.status === 'success') {
           setSearchResult(response.data.data);
+          console.log('Datos encontrados')
+          return;
         } else {
           alert('No se encontraron datos');
+          return;
         }
       })
       .catch(error => {
@@ -68,94 +75,61 @@ function Parking() {
     <>
       <Navbar />
       <PageHeading>{t('parkh1')}</PageHeading>
-      <div className='espacio'>
-        <div className='formulario espacio'>
-
-        <h3>{t('plateSearch')}</h3>
-          <Form className='espacio_abajo'>
-            <Form.Group controlId="searchPatente">
-              <Form.Label>{t('plate')}</Form.Label>
-              <Form.Control 
-                type="text" 
-                placeholder={t('getPlate')}
-                value={searchPatente}
-                onChange={(e) => setSearchPatente(e.target.value)}
-              />
-            </Form.Group>
-            <Button variant="primary" onClick={handleSearch}>
-            {t('search')}
-            </Button>
-          </Form>
-          {searchResult && (
-            <div className='resultado'>
-              <h4>{t('results')}</h4>
-              <p><strong>{t('nameParking')}</strong> {searchResult.nombre}</p>
-              <p><strong>{t('surnameParking')}</strong> {searchResult.apellido}</p>
-              <p><strong>{t('departmentParking')}</strong> {searchResult.departamento}</p>
-              <p><strong>{t('parkingParking')}</strong> {searchResult.estacionamiento}</p>
+      <div className='d-flex justify-content-center align-items-center'>
+        <div className='container-fluid p-3 rounded'>
+          <div className='card-body p-5'>
+            <h1 className='mb-5'><strong>{t('plateSearch')}</strong></h1>
+            <div className='card-content'>
+              <div className='card-form'>
+                <Form onSubmit={handleSearch} className='w-100'>
+                  <Form.Group controlId="searchPatente">
+                    <InputGroup className='mb-4' size="lg">
+                      <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faCar} /></InputGroup.Text>
+                      <Form.Control type="text" placeholder={t('getPlate')} value={searchPatente} onChange={(e) => setSearchPatente(e.target.value)} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+                    </InputGroup>
+                    <button className='card-button mb-5' type='submit'>{t('search')}</button>
+                  </Form.Group>
+                </Form>
+                <div className='d-flex justify-content-center mb-4'>
+                  {searchResult && (
+                    <div className='results'>
+                      <h4>{t('results')}</h4>
+                      <p><strong>{t('nameParking')}</strong> {searchResult.nombre}</p>
+                      <p><strong>{t('departmentParking')}</strong> {searchResult.departamento}</p>
+                      <p><strong>{t('parkingParking')}</strong> {searchResult.estacionamiento}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-          )}
-
-          <Form onSubmit={handleSubmit}>
-            <Row>
-              <Col>
-                <Form.Group controlId="nombre">
-                  <Form.Label>{t('nameParking')}</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder={t('enterName')}
-                    value={nombre}
-                    onChange={(e) => setNombre(e.target.value)}
-                  />
+            <h1 className='mb-5'><strong>{t('parkRegister')}</strong></h1>
+            <div className='container'>
+              <Form onSubmit={handleSubmit}>
+                <Row className='mb-3'>
+                  <Col>
+                    <InputGroup className='mb-3' controlId='nombre'>
+                      <Form.Control size="lg" type="text" placeholder={t('enterName')} value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                    </InputGroup>
+                    <InputGroup className='mb-3' controlId='patente'>
+                      <Form.Control size="lg" type="text" placeholder={t('getPlate')} value={patente} onChange={(e) => setPatente(e.target.value)} />
+                    </InputGroup>
+                  </Col>
+                  <Col>
+                    <InputGroup className='mb-3' controlId='departamento'>
+                      <Form.Control size="lg" type="text" placeholder={t('getDepartment')} value={departamento} onChange={(e) => setDepartamento(e.target.value)} />
+                    </InputGroup>
+                    <InputGroup className='mb-3' controlId='estacionamiento'>
+                      <Form.Control size="lg" type="number" placeholder={t('getParking')} value={estacionamiento} onChange={(e) => setEstacionamiento(e.target.value)} />
+                    </InputGroup>
+                  </Col>
+                </Row>
+                <Form.Group className='d-flex justify-content-center'>
+                  <button className='card-button' type='submit'>{t('send')}</button>
                 </Form.Group>
-                <Form.Group controlId="patente">
-                  <Form.Label>{t('plate')}</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder={t('getPlate')}
-                    value={patente}
-                    onChange={(e) => setPatente(e.target.value)}
-                  />
-                </Form.Group>
-                <Form.Group>
-                <Button variant="primary" type="submit">
-                {t('send')}
-            </Button>
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group controlId="apellido">
-                  <Form.Label>{t('surnameParking')}</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder={t('getSurname')}
-                    value={apellido}
-                    onChange={(e) => setApellido(e.target.value)}
-                  />
-                </Form.Group>
-                <Form.Group controlId="departamento">
-                  <Form.Label>{t('departmentParking')}</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder={t('getDepartment')}
-                    value={departamento}
-                    onChange={(e) => setDepartamento(e.target.value)}
-                  />
-                </Form.Group>
-                <Form.Group controlId="estacionamiento">
-                  <Form.Label>{t('parkingParking')}</Form.Label>
-                  <Form.Control 
-                    type="number" 
-                    placeholder={t('getParking')}
-                    value={estacionamiento}
-                    onChange={(e) => setEstacionamiento(e.target.value)}
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-          </Form>
+              </Form>
+            </div>
+          </div>
         </div>
-
       </div>
     </>
   );

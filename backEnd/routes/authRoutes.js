@@ -107,10 +107,10 @@ router.get('/deliveries/:apartment_number', (req, res) => {
 });
 
 router.post('/park', (req, res) => {
-    const { patente, nombre, apellido, departamento, estacionamiento } = req.body;
+    const { patente, nombre, departamento, estacionamiento } = req.body;
 
-    const sqlInsert = "INSERT INTO parking (patente, nombre, apellido, departamento, estacionamiento) VALUES (?, ?, ?, ?, ?)";
-    db.query(sqlInsert, [patente, nombre, apellido, departamento, estacionamiento], (err, result) => {
+    const sqlInsert = "INSERT INTO parking (patente, nombre, departamento, estacionamiento) VALUES (?, ?, ?, ?)";
+    db.query(sqlInsert, [patente, nombre, departamento, estacionamiento], (err, result) => {
         if (err) {
             console.error('Error inserting data:', err);
             res.status(500).json({ status: 'error', message: 'Error inserting data' });
@@ -122,7 +122,7 @@ router.post('/park', (req, res) => {
 
 router.get('/parking/:patente', (req, res) => {
     const patente = req.params.patente;
-    const sqlSearch = "SELECT nombre, apellido, departamento, estacionamiento FROM parking WHERE patente = ?";
+    const sqlSearch = "SELECT nombre, departamento, estacionamiento FROM parking WHERE patente = ?";
 
     db.query(sqlSearch, [patente], (err, result) => {
         if (err) {

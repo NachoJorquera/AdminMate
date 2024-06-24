@@ -58,9 +58,10 @@
     "surnameParking" : "Second Name:",
     "departmentParking" : "Department:",
     "parkingParking" : "Parking:",
-    "getPlate" : "Enter your plate",
+    "getPlate" : "Enter car plate",
     "getSurname" : "Enter your second name", 
-    "getDepartment" : "Enter your department",
-    "getParking" : "Enter your parking number",
-    "send" : "Send"
+    "getDepartment" : "Enter apartment",
+    "getParking" : "Enter parking number",
+    "send" : "Send",
+    "parkRegister": "Parking Registration"
 }
