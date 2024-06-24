@@ -53,7 +53,7 @@ function Register() {
     <Navbar2 />
     <PageHeading>AdminMate</PageHeading>
     <div className='d-flex justify-content-center align-items-center'>
-        <div className='container-fluid p-3 bg-white rounded w-75'>
+        <div className='container-fluid p-3 d-flex justify-content-center bg-white rounded w-75'>
             <form onSubmit={handleSubmit}>
                 <div className='text-center mb-5'>
                     <h1>{t('signup')}</h1>
@@ -63,24 +63,18 @@ function Register() {
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faUser} /></InputGroup.Text>
                             <Form.Control type='text' placeholder={t('enterName')} name='name' onChange={e => setValues({...values, name: e.target.value})} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
                     </InputGroup>
-                    {/* <label htmlFor="name"><strong>{t('name')}</strong></label>
-                    <input type="text" placeholder={t('enterName')} name='name' onChange={e => setValues({...values, name: e.target.value})} className='form-control rounded-3' /> */}
                 </div>
                 <div className='mb-4'>
                     <InputGroup size="lg">
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faEnvelope} /></InputGroup.Text>
                             <Form.Control type='email' placeholder={t('enterEmail')} name='email' onChange={e => setValues({...values, email: e.target.value})} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
                     </InputGroup>
-                    {/* <label htmlFor="email"><strong>{t('email')}</strong></label>
-                    <input type="email" placeholder={t('enterEmail')} name='email' onChange={e => setValues({...values, email: e.target.value})} className='form-control rounded-3' /> */}
                 </div>
                 <div className='mb-5'>
                     <InputGroup size="lg">
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faLock} /></InputGroup.Text>
                             <Form.Control type='password' placeholder={t('enterPassword')} name='password' onChange={e => setValues({...values, password: e.target.value})} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
                     </InputGroup>
-                    {/* <label htmlFor="password"><strong>{t('password')}</strong></label>
-                    <input type="password" placeholder={t('enterPassword')} name='password' onChange={e => setValues({...values, password: e.target.value})} className='form-control rounded-3' /> */}
                 </div>
                 <div className='text d-grid gap-2 col-10 mx-auto'>
                     <button type='submit' className='btn btn-dark w-100 rounded-3'>{t('signup')}</button>
