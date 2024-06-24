@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Navbar2 from '../components/Navbar2';
 import PageHeading from '../components/PageHeading';
@@ -54,27 +53,23 @@ function Login() {
     <Navbar2 />
     <PageHeading>AdminMate</PageHeading>
     <div className='d-flex justify-content-center align-items-center'>
-        <div className='container-fluid p-3 bg-white rounded w-75'>
+        <div className='container-fluid p-3 d-flex justify-content-center bg-white rounded w-75'>
             <form onSubmit={handleSubmit}>
                 <div className='text-center mb-5'>
                     <h1>{t('signin')}</h1>
                     <p className='fs-4'>{t('instruction')}</p>
                 </div>
                 <div className='mb-5'>
-                    {/* <label htmlFor='email'><strong>{t('email')}</strong></label> */}
                     <InputGroup size="lg">
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faEnvelope} /></InputGroup.Text>
                             <Form.Control type='email' placeholder={t('enterEmail')} name='email' onChange={e => setValues({...values, email: e.target.value})} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
                     </InputGroup>
-                    {/* <input type='email'placeholder={t('enterEmail')} name='email' onChange={e => setValues({...values, email: e.target.value})} className='form-control rounded-3' /> */}
                 </div>
                 <div className='mb-5'>
-                    {/* <label htmlFor='password'><strong>{t('password')}</strong></label> */}
                     <InputGroup size="lg">
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faLock} /></InputGroup.Text>
                             <Form.Control type='password' placeholder={t('enterPassword')} name='password' onChange={e => setValues({...values, password: e.target.value})} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
                     </InputGroup>
-                    {/* <input type='password'placeholder={t('enterPassword')} name='password' onChange={e => setValues({...values, password: e.target.value})} className='form-control rounded-3' /> */}
                     <p className='text-end'><a href='#'>Forgot Password?</a></p>
                 </div>
                 <div className='col-6 mx-auto mb-5'>
