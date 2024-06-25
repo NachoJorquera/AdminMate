@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCar } from "@fortawesome/free-solid-svg-icons";
+import { faCar, faUser, faBuilding,faSquareParking } from "@fortawesome/free-solid-svg-icons";
 
 function Parking() {
   const [patente, setPatente] = useState('');
@@ -92,16 +92,22 @@ function Parking() {
                   <Form.Group controlId="searchPatente">
                     <InputGroup className='mb-4' size="lg">
                       <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faCar} /></InputGroup.Text>
-                      <Form.Control type="text" placeholder={t('getPlate')} value={searchPatente} onChange={(e) => setSearchPatente(e.target.value)} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+                      <Form.Control
+                      type="text"
+                      placeholder={t('getPlate')}
+                      value={searchPatente}
+                      onChange={(e) => setSearchPatente(e.target.value)}
+                      required
+                      aria-label="Large"
+                      aria-describedby="inputGroup-sizing-sm" />
                     </InputGroup>
                     <button className='card-button mb-5' type='submit'>{t('search')}</button>
                   </Form.Group>
                 </Form>
-                <div className='d-flex justify-content-center mb-4'>
+                <div className=' d-flex justify-content-center'>
                   {searchResult && (
-                    <div className='results'>
-                      <h4>{t('results')}</h4>
-                      
+                    <div className='alert alert-success'>
+                      <h4 className='d-flex justify-content-center'><strong>{t('results')}</strong></h4>
                       {sourceTable === 'parking' ? (
                           <>
                             <p><strong>{t('nameParking')}</strong> {searchResult.nombre}</p>
@@ -113,15 +119,13 @@ function Parking() {
                           <>
                             <p><strong>{t('nameParking')}</strong> {searchResult.name}</p>
                             <p><strong>{t('RUT')}</strong> {searchResult.rut}</p>
-                            <p><strong>{t('departmentParking')}</strong> {searchResult.department}</p>
-                            <h4>{t('frequentVisit')}</h4>
+                            <p><strong>{t('apartNum')} </strong> 
+                            {searchResult.department}</p>
+                            <h4 className='text-center'>{t('frequentVisit')}</h4>
                           </>
                       ) : null}
-            
                     </div>
                   )}
-
-
                 </div>
               </div>
             </div>
@@ -131,18 +135,50 @@ function Parking() {
                 <Row className='mb-3'>
                   <Col>
                     <InputGroup className='mb-3' controlId='nombre'>
-                      <Form.Control size="lg" type="text" placeholder={t('enterName')} value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                      <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faUser} /></InputGroup.Text>
+                      <Form.Control
+                        size="lg"
+                        type="text"
+                        placeholder={t('enterName')}
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)}
+                        required
+                      />
                     </InputGroup>
                     <InputGroup className='mb-3' controlId='patente'>
-                      <Form.Control size="lg" type="text" placeholder={t('getPlate')} value={patente} onChange={(e) => setPatente(e.target.value)} />
+                      <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faCar} /></InputGroup.Text>
+                      <Form.Control
+                        size="lg"
+                        type="text"
+                        placeholder={t('getPlate')}
+                        value={patente}
+                        onChange={(e) => setPatente(e.target.value)}
+                        required
+                      />
                     </InputGroup>
                   </Col>
                   <Col>
                     <InputGroup className='mb-3' controlId='departamento'>
-                      <Form.Control size="lg" type="text" placeholder={t('getDepartment')} value={departamento} onChange={(e) => setDepartamento(e.target.value)} />
+                      <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faBuilding} /></InputGroup.Text>
+                      <Form.Control
+                        size="lg"
+                        type="number"
+                        placeholder={t('getDepartment')}
+                        value={departamento}
+                        onChange={(e) => setDepartamento(e.target.value)}
+                        required
+                      />
                     </InputGroup>
                     <InputGroup className='mb-3' controlId='estacionamiento'>
-                      <Form.Control size="lg" type="number" placeholder={t('getParking')} value={estacionamiento} onChange={(e) => setEstacionamiento(e.target.value)} />
+                      <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faSquareParking} /></InputGroup.Text>
+                      <Form.Control
+                        size="lg"
+                        type="number"
+                        placeholder={t('getParking')}
+                        value={estacionamiento}
+                        onChange={(e) => setEstacionamiento(e.target.value)}
+                        required
+                      />
                     </InputGroup>
                   </Col>
                 </Row>

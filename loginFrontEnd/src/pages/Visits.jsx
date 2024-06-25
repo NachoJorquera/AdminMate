@@ -3,9 +3,7 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import PageHeading from '../components/PageHeading';
 import { useTranslation } from 'react-i18next';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import FormFrequentVisit from '../components/FormFrequentVisit';
-import FormNonFrequentVisit from '../components/FormNonFrequentVisit';
+import VisitsForm from '../components/VisitsForm';
 import VerifyVisit from '../components/VerifyVisit';
 import './Visits.css';
 
@@ -70,25 +68,27 @@ function Visits() {
   return (
     <>
       <Navbar />
-      <PageHeading>{t('Registro de Visitas')}</PageHeading>
+      <PageHeading>{t('visitsh1')}</PageHeading>
       <div className='d-flex justify-content-center align-items-center'>
-        <div className='container-fluid p-3 rounded'>
-          <div className='card-body p-5'>
-            <div className="btn-container d-flex justify-content-center">
+        <div className='container-fluid'>
+          <div className='card-body p-3'>
+            <div className="btn-container d-flex justify-content-center mt-5">
               <button className="btn btn-dark mx-2" onClick={() => setVisitType('frequent')}>{t('freqVisits')}</button>
               <button className="btn btn-dark mx-2" onClick={() => setVisitType('non-frequent')}>{t('otherVisits')}</button>
               <button className="btn btn-dark mx-2" onClick={() => setVisitType('verify')}>{t('verifyVisits')}</button>
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="container-fluid d-flex justify-content-center">
               {visitType === 'frequent' && (
-                <FormFrequentVisit
+                <VisitsForm
+                  title={(t('addFreqVisit'))}
                   formData={formData}
                   handleChange={handleChange}
                   handleSubmit={handleSubmit}
                 />
               )}
               {visitType === 'non-frequent' && (
-                <FormNonFrequentVisit
+                <VisitsForm
+                  title={(t('addOtherVisit'))}
                   formData={formData}
                   handleChange={handleChange}
                   handleSubmit={handleSubmit}
@@ -102,7 +102,7 @@ function Visits() {
                   isFrequent={isFrequent}
                 />
               )}
-              </div>
+            </div>
           </div>
         </div>
       </div>

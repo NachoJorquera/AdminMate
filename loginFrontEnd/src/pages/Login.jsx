@@ -62,13 +62,29 @@ function Login() {
                 <div className='mb-5'>
                     <InputGroup size="lg">
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faEnvelope} /></InputGroup.Text>
-                            <Form.Control type='email' placeholder={t('enterEmail')} name='email' onChange={e => setValues({...values, email: e.target.value})} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+                            <Form.Control
+                                type='email'
+                                placeholder={t('enterEmail')}
+                                name='email'
+                                onChange={e => setValues({...values, email: e.target.value})}
+                                required
+                                aria-label="Large"
+                                aria-describedby="inputGroup-sizing-sm"
+                            />
                     </InputGroup>
                 </div>
                 <div className='mb-5'>
                     <InputGroup size="lg">
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faLock} /></InputGroup.Text>
-                            <Form.Control type='password' placeholder={t('enterPassword')} name='password' onChange={e => setValues({...values, password: e.target.value})} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+                            <Form.Control
+                                type='password'
+                                placeholder={t('enterPassword')}
+                                name='password'
+                                onChange={e => setValues({...values, password: e.target.value})}
+                                required
+                                aria-label="Large"
+                                aria-describedby="inputGroup-sizing-sm"
+                            />
                     </InputGroup>
                     <p className='text-end'><a href='#'>{t('forgotPass')}</a></p>
                 </div>

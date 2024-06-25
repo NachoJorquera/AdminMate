@@ -53,12 +53,14 @@ const ApartmentEntryForm = () => {
             <div className='card-body p-1'>
                 <label className='card-title' htmlFor='apartmentNumber'>{t('apartNum')}</label>
                 <form className='card-form' onSubmit={handleSubmit}>
+                    <div className='container d-grid'>
                     <InputGroup size="lg" className='mb-5'>
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faBuilding} /></InputGroup.Text>
                             <Form.Control type='number' id='apartmentNumber' value={apartmentNumber} onChange={handleInputChange} required placeholder={t('apartInput')} aria-label="Large" aria-describedby="inputGroup-sizing-sm"
                             />
                     </InputGroup>
                     <button className='card-button d-flex mx-auto mb-5' onClick={handleSubmit}>{t('next')}</button>
+                    </div>
                 </form>
             </div>
             <Modal show={showModal} onClose={() => setShowModal(false)} children={modalChildren} />

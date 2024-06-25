@@ -1,47 +1,55 @@
 import React from 'react';
-import '../pages/Visits.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useTranslation } from 'react-i18next';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faIdCard } from "@fortawesome/free-solid-svg-icons";
 
-const VerifyVisit = ({ visitorData, handleVisitorChange, handleScan, isFrequent }) => (
-  <div className='d-grid justify-content-center align-items-center'>
-    <div className="p-4 d-grid justify-content-center align-items-center">
-    <h2 className="mb-4">Verificar Visita</h2>
+function VerifyVisit({ visitorData, handleVisitorChange, handleScan, isFrequent }) {
+  const { t } = useTranslation();
+
+  return (
     <form onSubmit={handleScan}>
+      <h2 className="card-title mb-4 text-center">{t('verifyVisits')}</h2>
       <div className="mb-3">
-        <label className="form-label">RUT</label>
-        <input
+        <InputGroup className='mb-3' size="lg">
+          <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faIdCard} /></InputGroup.Text>
+          <Form.Control
           type="text"
-          className="form-control"
           name="rut"
+          placeholder={t('enterRUT')}
           value={visitorData.rut}
           onChange={handleVisitorChange}
           required
-        />
+          aria-label="Large"
+          aria-describedby="inputGroup-sizing-sm"
+          />
+        </InputGroup>
+      </div>
+      <div className='d-flex justify-content-center align-items-center'>
+      {isFrequent !== null && (
+        <div className={`mt-4 mb-5 alert ${isFrequent ? 'alert-success' : 'alert-danger'}`}>
+          {isFrequent ? (
+            <>
+              <h3 className='d-flex justify-content-center mb-3'><strong>{t('frequentVisit')}</strong></h3>
+              <p><strong>{t('name')}:</strong> {visitorData.name}</p>
+              <p><strong>{t('RUT')}</strong> {visitorData.rut}</p>
+              <p><strong>{t('birth')}:</strong> {new Date(visitorData.birthdate).toLocaleDateString()}</p>
+              <p><strong>{t('apartNum')}</strong> {visitorData.department}</p>
+              <p><strong>{t('plate')}</strong> {visitorData.patente || 'Patente no disponible'}</p>
+              <p><strong>{t('arrivalTime')}</strong> {visitorData.ingreso}</p>
+            </>
+          ) : (
+            <h4 className='d-flex justify-content-center'>Visita No Frecuente</h4>
+          )}
+        </div>
+      )}
+      </div>
+      <div className='d-flex justify-content-center'>
+        <button type="submit" className="card-button">{t('verify')}</button>
       </div>
     </form>
-    {isFrequent !== null && (
-      <div className={`mt-4 alert ${isFrequent ? 'alert-success' : 'alert-danger'}`}>
-        {isFrequent ? (
-          <>
-            <h3>Visita Frecuente</h3>
-            <p>Número de Departamento: {visitorData.department}</p>
-            <p>Nombre: {visitorData.name}</p>
-            <p>Fecha de Nacimiento: {new Date(visitorData.birthdate).toLocaleDateString()}</p>
-            <p>RUT: {visitorData.rut}</p>
-            <p>Patente: {visitorData.patente || 'Patente no disponible'}</p>
-            <p>Hora de Ingreso: {visitorData.ingreso}</p>
-          </>
-        ) : (
-          <p>Visita no frecuente</p>
-        )}
-      </div>
-    )}
-  </div>
-  <div className='d-flex justify-content-center'>
-        <button type="submit" className="card-button">Verificar</button>
-      </div>
-  </div>
-  
-);
+  )
+}
 
-export default VerifyVisit;
+export default VerifyVisit

@@ -148,8 +148,8 @@
 
 /* Media Queries for responsiveness */
 
-@media (max-width: 957px) {
-    .card-footer {
+@media (max-width: 1220px) {
+    .card-body > .card-footer {
         flex-direction: column;
     }
 }
