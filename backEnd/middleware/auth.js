@@ -8,7 +8,7 @@ const verifyUser = (req, res, next) => {
         logger.debug('No token provided, authentication failed.');
         return res.json({ Error: "You are not authenticated" }); // Entrega mensaje de error si no está autenticado
     } else {
-        jwt.verify(token, process.env.JWT_SECRET || "jwt-secret-key", (err, decoded) => {
+        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if(err) {
                 logger.error('Token verification failed:', err);
                 return res.json({ Error: "Token is not correct" }); // Entrega mensaje de error si el token no es válido

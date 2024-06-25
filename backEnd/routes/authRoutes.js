@@ -1,6 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import verifyUser from '../middleware/auth.js';
 import db from '../config/db.js';
 import logger from '../utils/logger.js';
 import dotenv from 'dotenv';
@@ -202,6 +203,11 @@ router.post('/visitas/register', (req, res) => {
         logger.info("Visit registered successfully", { visitor: name });
         return res.status(200).json({ Status: "Success" });
     });
+});
+
+router.post('/deliveries', verifyUser, (req, res) => {
+    res.send('This is a protected route');
+    console.log('This is a protected route');
 });
 
 export default router;

@@ -27,7 +27,7 @@
     "deliveries": "Deliveries",
     "delih1": "DELIVERIES",
     "homeh1": "HOME",  
-    "apartNum": "Apartment Number:",
+    "apartNum": "Apartment number:",
     "apartInput": "Enter apartment number",
     "next": "Next",
     "notidetails": "Notification Details",
@@ -66,5 +66,11 @@
     "parkRegister": "Parking Registration",
     "frequentVisit" : "Frequent visit!",
     "arrivalTime" : "Time of arrival:",
-    "RUT" : "RUT:"
+    "RUT" : "RUT:",
+    "freqVisits": "Frequent Visits",
+    "otherVisits": "Other Visits",
+    "verifyVisits": "Verify Visits",
+    "addFreqVisit": "Add Frequent Visit",
+    "forgotPass": "Forgot Password?",
+    "noAccount": "Dont have an account? "
 }

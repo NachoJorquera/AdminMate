@@ -24,7 +24,7 @@ const VerifyVisit = ({ visitorData, handleVisitorChange, handleScan, isFrequent 
         {isFrequent ? (
           <>
             <h3>Visita Frecuente</h3>
-            <p>NÃºmero de Departamento: {visitorData.department}</p>
+            <p>Número de Departamento: {visitorData.department}</p>
             <p>Nombre: {visitorData.name}</p>
             <p>Fecha de Nacimiento: {new Date(visitorData.birthdate).toLocaleDateString()}</p>
             <p>RUT: {visitorData.rut}</p>

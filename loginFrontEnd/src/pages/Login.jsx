@@ -70,13 +70,13 @@ function Login() {
                         <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faLock} /></InputGroup.Text>
                             <Form.Control type='password' placeholder={t('enterPassword')} name='password' onChange={e => setValues({...values, password: e.target.value})} aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
                     </InputGroup>
-                    <p className='text-end'><a href='#'>Forgot Password?</a></p>
+                    <p className='text-end'><a href='#'>{t('forgotPass')}</a></p>
                 </div>
                 <div className='col-6 mx-auto mb-5'>
                     <button type='submit' className='btn btn-dark w-100 rounded-3'>{t('login')}</button>    
                 </div>
                 <div className='text-center'>
-                    <p><a href='/register'>Dont have an account? <strong>Sign-up</strong></a></p>
+                    <p><a href='/register'>{t('noAccount')}<strong>{t('signup')}</strong></a></p>
                 </div>
             </form>
         </div>

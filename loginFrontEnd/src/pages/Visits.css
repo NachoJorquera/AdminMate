@@ -1,3 +1,14 @@
+.card-body > .btn-container {
+  display: flex;
+}
+
+@media (max-width: 1128px) {
+  .card-body > .btn-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 /* 
 body.visits-body {
   font-family: Arial, sans-serif;
