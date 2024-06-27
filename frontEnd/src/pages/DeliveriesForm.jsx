@@ -18,7 +18,6 @@ function DeliveriesForm() {
     <>
         <Navbar />
         <PageHeading>{t('delih1')}</PageHeading>
-        {/* <NotifierForm /> */}
         {notificationSent ? (
           <NotiMessge />
         ) : (
