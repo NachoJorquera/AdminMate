@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import PageHeading from '../components/PageHeading';
 import { useTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
     // Uso del hook de traducción para soportar multi-lenguaje
@@ -10,7 +12,20 @@ function Home() {
   return (
     <>
         <Navbar />
-        <PageHeading>{t('homeh1')}</PageHeading>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <PageHeading>{t('welcome')}<FontAwesomeIcon icon={faBuilding} /></PageHeading>
     </>
   )
 }
