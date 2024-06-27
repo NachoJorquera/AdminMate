@@ -107,6 +107,7 @@ router.get('/deliveries/:apartment_number', (req, res) => {
     });
 });
 
+// Ruta para registrar ingresos al estacionamiento
 router.post('/park', (req, res) => {
     const { patente, nombre, departamento, estacionamiento } = req.body;
 
@@ -121,6 +122,7 @@ router.post('/park', (req, res) => {
     });
 });
 
+// Ruta para traer información con número de patente
 router.get('/parking/:patente', (req, res) => {
     const patente = req.params.patente;
     const sqlSearch = "SELECT name, department, rut FROM frequent_visits WHERE patente = ?";
@@ -205,6 +207,7 @@ router.post('/visitas/register', (req, res) => {
     });
 });
 
+// Ruta para intentar agregar seguridad a la página
 router.post('/deliveries', verifyUser, (req, res) => {
     res.send('This is a protected route');
     console.log('This is a protected route');
