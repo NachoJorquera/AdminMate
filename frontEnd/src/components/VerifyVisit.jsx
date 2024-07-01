@@ -40,7 +40,7 @@ function VerifyVisit({ visitorData, handleVisitorChange, handleScan, isFrequent 
               <p><strong>{t('arrivalTime')}</strong> {visitorData.ingreso}</p>
             </>
           ) : (
-            <h4 className='d-flex justify-content-center'>Visita No Frecuente</h4>
+            <h4 className='d-flex justify-content-center'>{t('nonFreqVisit')}</h4>
           )}
         </div>
       )}

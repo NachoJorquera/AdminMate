@@ -80,5 +80,6 @@
     "add": "Agregar",
     "birth": "Fecha de nacimiento",
     "verify": "Verificar",
-    "welcome": "Bienvenido a AdminMate"
+    "welcome": "Bienvenido a AdminMate",
+    "nonFreqVisit": "Visita No Frecuente"
 }

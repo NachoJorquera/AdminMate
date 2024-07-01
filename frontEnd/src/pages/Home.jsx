@@ -20,11 +20,6 @@ function Home() {
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <PageHeading>{t('welcome')}<FontAwesomeIcon icon={faBuilding} /></PageHeading>
     </>
   )

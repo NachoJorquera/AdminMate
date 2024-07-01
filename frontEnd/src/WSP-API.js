@@ -1,6 +1,6 @@
 // const phone = '56973869648'
 const phone_id = '351028438091698'
-const token = 'EAAOUFh6fl5MBO6zs6b914qZBtw2HZB3UhPZCyJU0fG7XEAy6YBkFGVP6jDr3uYELsK7JX3oDuuToxthoe8yEaPLRZAHL3By9Jhj8ueZB18fYgbmE7YiIPPbytluAlDLLEbMIq13iZBaJc6nun3wEnsvqL3ocVbGS9GK7KV2MnNAJXib9dudHntHQZBrM5ZA3R7YFL0vOUqerh73BZAHZCXEUmLL3yIeUiZAWMdxAw6p'
+const token = 'EAAOUFh6fl5MBO076hC0tZA7uzUQ5T4KTShmGnIjnHThIC2ZBO2rR7nrpqURDi1jxJWyORTScHoEaAAZBbZCo9zykUZAZBmmrBxfIZANpNN9lQcG0EnEw3i7Gl5bc2LW3uZCAOGHwVX5ZBqwFNwvj12JSEMyBL6Y2tcZCnd6kp3xaZBFr8CDJICYPkpcZC9R3JmlXH2oYflb936nOSVPFEnP81q8uPC7njYSYJy02g0oZD'
 const version = 'v20.0'
 
 const url = 'https://graph.facebook.com/' + version + '/' + phone_id + '/messages'
