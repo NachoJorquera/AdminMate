@@ -26,14 +26,14 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-          cd backend  # Ensure we are in the backend directory
+          cd backEnd  # Ensure we are in the backend directory
           zip -r release.zip .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: backend/release.zip  # Specify the correct path to the release.zip file
+          path: backEnd/release.zip  # Specify the correct path to the release.zip file
 
   deploy:
     runs-on: ubuntu-latest
@@ -63,4 +63,4 @@ jobs:
         with:
           app-name: 'AdminMate-backend'
           slot-name: 'Production'
-          package: backend/release.zip  # Ensure the correct path to the package
+          package: backEnd/release.zip  # Ensure the correct path to the package
