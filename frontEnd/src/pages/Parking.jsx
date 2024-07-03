@@ -21,10 +21,6 @@ function Parking() {
   const [searchResult, setSearchResult] = useState(null);
   const [searchMessage, setSearchMessage] = useState('');
   const [sourceTable, setSourceTable] = useState('');
-  /*
-  const { patentes } = useParams();
-  const [data, setData] = useState([]);
-  */
 
   const { t, i18n } = useTranslation();
 
@@ -32,20 +28,6 @@ function Parking() {
     i18n.changeLanguage(language); // Activa el cambio de idioma
     localStorage.setItem('i18nextLng', language); // Almacena el lenguaje seleccionado en localStorage
   };
-/*
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8081/parking/time/${patente}`);
-        console.log('response:', response);
-      } catch (error) {
-        console.error('Error al obtener los datos:', error);
-      }
-    };
-    fetchData();
-  }, [patentes]);
-  */
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -99,38 +81,6 @@ function Parking() {
     });
   };
 
-  /*
-  const monitorEntryTime = (patente) => {
-    axios.get(`http://localhost:8081/parking/time/${patente}`)
-      .then(response => {
-        if (response.data.status === 'success') {
-          const entryData = response.data.data;
-          console.log('entryData:', entryData);
-            const entryPatente = entryData.patente;
-            const entryTime = new Date(entryData.created_at);
-            const currentTime = new Date();
-            const timeElapsed = currentTime - entryTime;
-            console.log('Patente:', entryPatente);
-            const timeRemaining = 10 * 1000 - timeElapsed;
-  
-            if (timeRemaining > 0) {
-              setTimeout(() => {
-                alert(`Han pasado 2 minutos desde que el vehículo con patente ${entryPatente} ingresó. Está usando el estacionamiento ${entryData.estacionamiento}.`);
-              }, timeRemaining);
-            } else {
-              alert(`Han pasado más de 2 minutos desde que el vehículo con patente ${entryPatente} ingresó. Está usando el estacionamiento ${entryData.estacionamiento}.`);
-            }
-  
-        } else {
-          console.error('Error: No se encontró la hora de ingreso del vehículo.');
-        }
-      })
-      .catch(error => {
-        console.error('Error al obtener la hora de ingreso:', error);
-      });
-  };
-  */
-
   const monitorEntryTime = (patente) => {
     axios.get(`http://localhost:8081/parking/time/${patente}`)
       .then(response => {
@@ -151,8 +101,6 @@ function Parking() {
           console.log('Patente:', entryPatente);
           console.log('Estacionamiento:', entryData.estacionamiento);
           const timeRemaining = 10 * 1000 - timeElapsed; // 2 minutos en milisegundos
-          
-          //const timeAlert = 1 * 60 * 1000 - 2*60*1000 - timeElapsed; // 1 minuto en milisegundos
 
           if (timeRemaining > 0) {
             setTimeout(() => {
