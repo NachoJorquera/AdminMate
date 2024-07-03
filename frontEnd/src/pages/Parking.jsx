@@ -9,8 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCar, faUser, faBuilding,faSquareParking } from "@fortawesome/free-solid-svg-icons";
-
+import { faCar, faUser, faBuilding, faSquareParking } from "@fortawesome/free-solid-svg-icons";
 
 function Parking() {
   const [patente, setPatente] = useState('');
@@ -21,12 +20,14 @@ function Parking() {
   const [searchResult, setSearchResult] = useState(null);
   const [searchMessage, setSearchMessage] = useState('');
   const [sourceTable, setSourceTable] = useState('');
+  const [minutos, setMinutos] = useState('');
+  const [minutosMaximo, setMinutosMaximo] = useState('');
 
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (language) => {
-    i18n.changeLanguage(language); // Activa el cambio de idioma
-    localStorage.setItem('i18nextLng', language); // Almacena el lenguaje seleccionado en localStorage
+    i18n.changeLanguage(language);
+    localStorage.setItem('i18nextLng', language);
   };
 
   const handleSubmit = (event) => {
@@ -65,7 +66,7 @@ function Parking() {
           setSearchMessage('Datos encontrados en la tabla de frequent_visits.');
         } else if (response.data.source === 'parking') {
           setSearchMessage('Datos encontrados en la tabla de parking.');
-          monitorEntryTime(searchPatente); // Iniciar monitoreo al buscar los datos
+          monitorEntryTime(searchPatente);
         }
       } else {
         setSearchMessage('No se encontraron datos en ninguna de las tablas');
@@ -100,15 +101,23 @@ function Parking() {
           const timeElapsed = currentTime - entryTime;
           console.log('Patente:', entryPatente);
           console.log('Estacionamiento:', entryData.estacionamiento);
-          const timeRemaining = 10 * 1000 - timeElapsed; // 2 minutos en milisegundos
+          const timeRemaining = minutosMaximo * 60 * 1000 - timeElapsed; // minutos_maximo en milisegundos
+          const timeAlert = timeRemaining - minutos * 60 * 1000; // minutos en milisegundos
+          const tiempoMaximo =( minutosMaximo - minutos) * 60 * 1000 - timeElapsed;
+          
 
           if (timeRemaining > 0) {
             setTimeout(() => {
-              alert(`Han pasado 10 segundos desde que el vehículo con patente ${entryPatente} ingresó. Está usando el estacionamiento ${entryData.estacionamiento}.`);
-            }, timeRemaining);
-          } else {
-            alert(`Han pasado más de 10 segundos desde que el vehículo con patente ${entryPatente} ingresó. Está usando el estacionamiento ${entryData.estacionamiento}.`);
-          }
+              alert(`Han pasado ${minutosMaximo} minutos desde que el vehículo con patente ${entryPatente} ingresó. Está usando el estacionamiento ${entryData.estacionamiento}.`);
+            }, timeAlert);
+          } /*else {
+            alert(`Han pasado más de ${minutosMaximo} segundos desde que el vehículo con patente ${entryPatente} ingresó. Está usando el estacionamiento ${entryData.estacionamiento}.`);
+          }*/
+          if (tiempoMaximo > 0) {
+            alert(`Quedan ${minutos} minutos para que se cumpla el limite de tiempo de ${minutosMaximo} minutos de el vehículo con patente ${entryPatente} que está usando el estacionamiento ${entryData.estacionamiento}.`);
+          } /*else{
+            alert(`El tiempo máximo de ${minutosMaximo} segundos no ha sido excedido.`);
+          }*/
 
         } else {
           console.error('Error: No se encontró la hora de ingreso del vehículo.');
@@ -134,13 +143,13 @@ function Parking() {
                     <InputGroup className='mb-4' size="lg">
                       <InputGroup.Text id="inputGroup-sizing-lg"><FontAwesomeIcon icon={faCar} /></InputGroup.Text>
                       <Form.Control
-                      type="text"
-                      placeholder={t('getPlate')}
-                      value={searchPatente}
-                      onChange={(e) => setSearchPatente(e.target.value)}
-                      required
-                      aria-label="Large"
-                      aria-describedby="inputGroup-sizing-sm" />
+                        type="text"
+                        placeholder={t('getPlate')}
+                        value={searchPatente}
+                        onChange={(e) => setSearchPatente(e.target.value)}
+                        required
+                        aria-label="Large"
+                        aria-describedby="inputGroup-sizing-sm" />
                     </InputGroup>
                     <button className='card-button mb-5' type='submit'>{t('search')}</button>
                   </Form.Group>
@@ -218,6 +227,34 @@ function Parking() {
                         placeholder={t('getParking')}
                         value={estacionamiento}
                         onChange={(e) => setEstacionamiento(e.target.value)}
+                        required
+                      />
+                    </InputGroup>
+                  </Col>
+                </Row>
+                <Row className='mb-3'>
+                  <Col>
+                    <InputGroup className='mb-3' controlId='minutos'>
+                      <InputGroup.Text id="inputGroup-sizing-lg">Minutos</InputGroup.Text>
+                      <Form.Control
+                        size="lg"
+                        type="number"
+                        placeholder='Ingresa los minutos'
+                        value={minutos}
+                        onChange={(e) => setMinutos(e.target.value)}
+                        required
+                      />
+                    </InputGroup>
+                  </Col>
+                  <Col>
+                    <InputGroup className='mb-3' controlId='minutosMaximo'>
+                      <InputGroup.Text id="inputGroup-sizing-lg">Minutos Máximo</InputGroup.Text>
+                      <Form.Control
+                        size="lg"
+                        type="number"
+                        placeholder='Ingresa los minutos máximo'
+                        value={minutosMaximo}
+                        onChange={(e) => setMinutosMaximo(e.target.value)}
                         required
                       />
                     </InputGroup>
