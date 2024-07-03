@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "route": "/home",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/login",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/register",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/authmenu",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/visits",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/deliveries",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/deliveries/:apartment_number",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/parking",
+      "rewrite": "/index.html"
+    }
+  ]
+}
