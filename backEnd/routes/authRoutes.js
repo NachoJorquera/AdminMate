@@ -154,6 +154,32 @@ router.get('/parking/:patente', (req, res) => {
     });
 });
 
+// Ruta para obtener la hora de ingreso de un vehículo
+router.get('/parking/time/:patente', (req, res) => {
+    const patente = req.params.patente;
+    const sqlSearchTime = "SELECT patente, estacionamiento, created_at FROM parking WHERE patente = ?";
+
+    db.query(sqlSearchTime, [patente], (err, result) => {
+        if (err) {
+            console.error('Error fetching data:', err);
+            res.status(500).json({ status: 'error', message: 'Error fetching data' });
+        } else {
+            console.log('result from DB:', result);
+            if (result.length > 0) {
+                const entryData = {
+                    patente: result[0].patente,
+                    estacionamiento: result[0].estacionamiento,
+                    created_at: result[0].created_at
+                };
+                console.log('entryData:', entryData);
+                res.status(200).json({ status: 'success', data: entryData });
+            } else {
+                res.status(404).json({ status: 'error', message: 'No data found' });
+            }
+        }
+    });
+});
+
 // Ruta para agregar una visita frecuente
 router.post('/visitas/frequent', (req, res) => {
     logger.debug(`Frequent visit data received: ${JSON.stringify(req.body)}`);
