@@ -8,10 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
       - name: Set up Node.js version
         uses: actions/setup-node@v2
         with:
@@ -19,7 +17,7 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          cd backend  # Ensure we are in the backend directory
+          cd backEnd  # Ensure we are in the backend directory
           npm install
           npm run build --if-present
           npm run test --if-present
